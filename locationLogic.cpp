@@ -5,10 +5,11 @@
 #include "LogicShopFunction.h"
 #include "Logic.h"
 #include "FightLogic.h"
+#include "Listgui.h"
 
 #include <vector>
 
-void LocationChoice(short& gch, std::vector<std::string> loclist)
+void LocationChoice(short& gch)
 {
 	FSL();
 	FootnoteL();
@@ -18,7 +19,7 @@ void LocationChoice(short& gch, std::vector<std::string> loclist)
 	FootnoteL();
 	FSL();
 	int i = 1;
-	for (auto& o : loclist)
+    for (auto& o : location_collection)
 	{
 		std::cout << " " << i << ") " << o << std::endl;
 		i++;
@@ -68,12 +69,12 @@ void GoOnLoc(Hero& hero, std::string loc)
 	while (check)
 	{
 		system("cls");
-		FightChoice(getchoice, loc, mFch);
+        FightChoice(getchoice, loc, mFch);
 
 		switch (getchoice)
 		{
 		case Fchoice::FENEMY:
-			Fight(hero);
+            Fight(hero, loc);
 			break;
 		case Fchoice::FExit:
             check = false;
