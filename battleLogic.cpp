@@ -17,7 +17,6 @@ void Inventory(Hero& hero);
 
 int MenuGo(Hero& h)
 {
-	char mode;
 	FSL();
 
         std::cout << "\n " << h.GetName() << " state:\n\n" <<
@@ -61,9 +60,7 @@ int MenuGo(Hero& h)
 	FSL();
 	std::cout << "\n > ";
 
-    mode = checkInput() + '0';
-	system("cls");
-	return mode - '0';
+    return checkInput();
 }
 
 

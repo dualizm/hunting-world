@@ -1,6 +1,6 @@
 #pragma once
 
-char Menu();
+void Menu(short& mode);
 
 void Exit(bool& request);
 

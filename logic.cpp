@@ -12,9 +12,8 @@ void WinThisGame()
 	exit(0);
 }
 
-char Menu()
+void Menu(short& mode)
 {
-	char mode;
 	FSL();
 	FootnoteL();
 	SetColor(ConsoleColor::Black, ConsoleColor::Red);
@@ -33,9 +32,8 @@ char Menu()
 
 	FSL(); 
 	std::cout << "\n > ";
-    mode = checkInput() + '0';
-	system("cls");
-	return mode;
+
+    mode = checkInput();
 }
 
 void Exit(bool& request)

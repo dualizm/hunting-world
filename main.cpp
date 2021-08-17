@@ -22,20 +22,21 @@ int main()
 	while (work)
 	{
 		system("cls");
-        char choice = Menu(); // Displays the game menu and gives you a choice! REALIZED
+        short choice;
+        Menu(choice); // Displays the game menu and gives you a choice! REALIZED
 
 		switch (choice)
 		{
-		case '1':
+        case static_cast<int>(main_menu::BATTLEMODE):
             BattleMode(); // Starts the battle against monsters! PROCESS
 			break;
-		case '2':
+        case static_cast<int>(main_menu::STORYLINE):
             StoryLine(); // Displays game history! PROCESS
 			break;
-		case '3':
+        case static_cast<int>(main_menu::GAMEINSTRUCTIONS):
             GameInstructions(); // Tells how to play! PROCESS
 			break;
-		case '4':
+        case static_cast<int>(main_menu::EXIT):
             Exit(work); // Make a request to exit! REALIZED
 			break;
 		default:

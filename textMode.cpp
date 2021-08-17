@@ -35,6 +35,7 @@ void StoryLine()
 
 void GameInstructions()
 {
+    system("cls");
 	FSL();
 	std::cout << "\n Hi, this is a game instruction\n\n"
 		<< " The essence of the game is to destroy the great dragon.\n\n"

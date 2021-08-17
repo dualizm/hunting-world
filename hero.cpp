@@ -118,7 +118,7 @@ void Hero::DebugcheatMode(int& health, int& gold, float& lvl, int& day)
 {
 	int chek;
 	std::cout << " Enter game mode (0 - godmode, 1 - gamemod, 2 - auto godmode): ";
-	std::cin >> chek;
+    chek = checkInput();
 	if (chek == 0)
 		return;
 	else if (chek == 1)
