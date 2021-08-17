@@ -11,6 +11,7 @@
 #include "FightLogic.h"
 #include "HeirsOfAnWeapon.h"
 #include "LocationLogic.h"
+#include "Listgui.h"
 
 void Inventory(Hero& hero);
 
@@ -18,16 +19,33 @@ int MenuGo(Hero& h)
 {
 	char mode;
 	FSL();
-	std::cout << "\n" <<
-		" Day: " << h.GetDay() << "  |  " << "Level: " << h.GetLvl() << "\n\n" <<
 
-		" " << h.GetName() << " state:\n" <<
-		" Health: " << std::setw(5) <<
-		h.GetHealth() << "  |  " <<
-		" Gold: " << h.GetGold() << "\n" <<
-		" Attack: " << std::setw(5) <<
-		h.GetAttack() << "  |  " <<
-		" Weapon: " << h.GetWeaponName() << "\n\n";
+        std::cout << "\n " << h.GetName() << " state:\n\n" <<
+        " Health: " << std::setw(4);
+
+        SetColor(ConsoleColor::Green, ConsoleColor::Black);
+        std::cout << h.GetHealth();
+        SetColor(ConsoleColor::White, ConsoleColor::Black);
+
+        std::cout << "  |  " << std::setw(9) << " Weapon: ";
+        SetColor(ConsoleColor::Cyan, ConsoleColor::Black);
+        std::cout << h.GetWeaponName();
+        SetColor(ConsoleColor::White, ConsoleColor::Black);
+
+        std::cout << "\n" << " Gold: " << std::setw(6);
+        SetColor(ConsoleColor::Yellow, ConsoleColor::Black);
+        std::cout << h.GetGold();
+        SetColor(ConsoleColor::White, ConsoleColor::Black);
+
+        std::cout << "  |  "  << std::setw(9) << " Attack: " << std::setw(-4);
+        SetColor(ConsoleColor::Red, ConsoleColor::Black);
+        std::cout << h.GetAttack();
+        SetColor(ConsoleColor::White, ConsoleColor::Black);
+
+        std::cout << "\n\n" <<
+            " Day: " << h.GetDay() << "  |  " << "Level: " << h.GetLvl();
+
+        std::cout << "\n\n";
 
 	FSL();
 	std::cout << " Menu:\n";
@@ -59,24 +77,24 @@ void FindLocation(Hero& hero)
 		locExit = 0
 	};
 
-	std::vector<std::string> loclist { {"Mysterious forest"}, {"Old castle"}, {"Sacred mountains"} };
-
 	bool fight{ true };
 	short getchoice;
 
 	while (fight)
 	{
 		system("cls");
-		LocationChoice(getchoice, loclist);
+        LocationChoice(getchoice);
 
 		switch (getchoice)
 		{
 		case LocList::locMISTERYFOREST:
-			GoOnLoc(hero, loclist[0]);
+            GoOnLoc(hero, location_collection[0]);
 			break;
 		case LocList::locOLDCASTLE:
+            GoOnLoc(hero, location_collection[1]);
 			break;
 		case LocList::locSACREDMOUNTAINS:
+            GoOnLoc(hero, location_collection[2]);
 			break;
 		case LocList::locExit:
             fight = false;

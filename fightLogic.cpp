@@ -5,6 +5,7 @@
 #include "Sms.h"
 #include "Color.h"
 #include "BattleLogic.h"
+#include "Listgui.h"
 
 #include <random>
 #include <functional>
@@ -51,7 +52,7 @@ void TryEscape(Hero& hero, Enemy* p_enemy, bool& status)
 	}
 }
 
-Enemy* Notification(Hero& hero)
+Enemy* Notification(Hero& hero, std::string loc)
 {
 	system("cls");
 
@@ -59,20 +60,52 @@ Enemy* Notification(Hero& hero)
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
 	int chance = 0 + mersenne() % 100;
 
-#if 1
-	if (chance >= 0 && chance < 40)
-	{
-        return new FSlime(hero);
-	}
-	else if (chance >= 40 && chance < 80)
-	{
-		return new Goblin(hero);
-	}
-	else if (chance >= 80)
-	{
-		return new SlimeBoss(hero);
-	}
-#endif
+    if(loc == location_collection[0])
+    {
+        if (chance >= 0 && chance < 40)
+        {
+            return new FSlime(hero);
+        }
+        else if (chance >= 40 && chance < 80)
+        {
+            return new Goblin(hero);
+        }
+        else if (chance >= 80)
+        {
+            return new SlimeBoss(hero);
+        }
+    }
+    else if(loc == location_collection[1])
+    {
+        if (chance >= 0 && chance < 40)
+        {
+            return new FSlime(hero);
+        }
+        else if (chance >= 40 && chance < 80)
+        {
+            return new Goblin(hero);
+        }
+        else if (chance >= 80)
+        {
+            return new SlimeBoss(hero);
+        }
+    }
+    else if(loc == location_collection[2])
+    {
+        if (chance >= 0 && chance < 40)
+        {
+            return new FSlime(hero);
+        }
+        else if (chance >= 40 && chance < 80)
+        {
+            return new Goblin(hero);
+        }
+        else if (chance >= 80)
+        {
+            return new SlimeBoss(hero);
+        }
+    }
+
 	return new Goblin(hero);
 }
 
@@ -123,7 +156,7 @@ void LoseFight()
 	exit(0);
 }
 
-void Fight(Hero& hero)
+void Fight(Hero& hero, std::string loc)
 {
 	enum FightList
 	{
@@ -133,7 +166,7 @@ void Fight(Hero& hero)
 		fightRUN = 4,
 	};
 
-	Enemy* p_enemy = Notification(hero);
+    Enemy* p_enemy = Notification(hero, loc);
 
 	bool fight = true;
 	short getchoice;
