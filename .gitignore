@@ -1,1 +1,3 @@
-*.pro
+
+# Don't include Qt file
+*.pro*
