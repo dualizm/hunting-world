@@ -8,15 +8,6 @@
 #include <iomanip>
 #include <memory>
 
-short checkInput()
-{
-	std::string str; std::cin >> str;
-	if (str[0] >= '0' || str[0] <= '9') return str[0] - '0';
-	else ErrorMessage();
-
-	return 0;
-}
-
 void ItemChoice(short& gch)
 {
 	FSL();

@@ -1,14 +1,14 @@
 #pragma once
-#include "SupportFunctions.h"
 #include <string>
+#include "SupportFunctions.h"
 
 class Person
 {
 protected:
-	int health;	   // гднпнбэе
-	int gold;		   // гнкнрн
-	float lvl;		   // спнбемэ
-	std::string name; // хлъ
+    int health;	   // HEALTH
+    int gold;		   // GOLD
+    float lvl;		   // LEVEL
+    std::string name; // NAME
 
 public:
 

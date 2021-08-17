@@ -20,7 +20,7 @@ protected:
 
 public:
 
-    Enemy(std::string name, int health, int gold, float lvl, int chance, int damage, ConsoleColor color, std::vector<std::string> sprite)
+    Enemy(std::string name, float lvl, int health, int gold, int chance, int damage, ConsoleColor color, std::vector<std::string> sprite)
         : Person(name, health, gold, lvl), sprite(sprite), chance(chance), damage(damage), color(color) {}
 
 public:
