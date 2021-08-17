@@ -92,18 +92,7 @@ Enemy* Notification(Hero& hero, std::string loc)
     }
     else if(loc == location_collection[2])
     {
-        if (chance >= 0 && chance < 40)
-        {
-            return new FSlime(hero);
-        }
-        else if (chance >= 40 && chance < 80)
-        {
-            return new Goblin(hero);
-        }
-        else if (chance >= 80)
-        {
-            return new SlimeBoss(hero);
-        }
+		return new SlimeBoss(hero);
     }
 
 	return new Goblin(hero);
@@ -149,7 +138,7 @@ bool WinFight(Hero& hero, Enemy* p_enemy)
 void LoseFight()
 {
 	Sms("You died in battle!");
-	Sms("It is sad =(");
+	Sms("It's sad =(");
 	Sms("Try again!!!");
 	DSTgo();
 
