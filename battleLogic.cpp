@@ -219,3 +219,8 @@ void Inventory(Hero& hero)
 		InventoryChoice(hero);
 	}
 }
+
+int test123()
+{
+	return 123;
+}
