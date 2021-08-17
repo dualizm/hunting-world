@@ -142,7 +142,7 @@ void LoseFight()
 	Sms("Try again!!!");
 	DSTgo();
 
-    system("restart");
+    exit(0);
 }
 
 void Fight(Hero& hero, std::string loc)
