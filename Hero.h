@@ -20,7 +20,7 @@ private:
     std::shared_ptr<Weapon> weapon; // WEAPON
 
 public:
-    const short sizeInv = 6;
+    const size_t sizeInv{6};
 
     list_item inventory; // INVENTORY
 
