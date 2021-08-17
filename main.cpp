@@ -20,7 +20,7 @@ int main()
 
 	bool work{true};
 	while (work)
-	{
+    {
 		system("cls");
         short choice;
         Menu(choice); // Displays the game menu and gives you a choice! REALIZED

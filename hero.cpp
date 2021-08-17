@@ -95,7 +95,7 @@ void Hero::AttackEnemy(Hero& hero, Enemy* enemy, int damageInt)
 {
     if (damageInt == weapon->getDamageSpecialAttack())
 	{
-		std::cout << " Special Attack Charge! -" + std::to_string(5 + hero.GetLvl()) + " your health" << std::endl;
+        std::cout << " Special Attack Charge! " + weapon->getInfo(hero) << std::endl;
 		weapon->resultSpecialAttack(hero);
 	}
 	std::cout << " You attack the enemy!" << std::endl;
@@ -117,7 +117,7 @@ void Hero::AttackEnemy(Hero& hero, Enemy* enemy, int damageInt)
 void Hero::DebugcheatMode(int& health, int& gold, float& lvl, int& day)
 {
 	int chek;
-	std::cout << " Enter game mode (0 - godmode, 1 - gamemod, 2 - auto godmode): ";
+    std::cout << " Enter game mode (0 - gamemod, 1 - godmode, 2 - auto godmode): ";
     chek = checkInput();
 	if (chek == 0)
 		return;

@@ -15,7 +15,7 @@ void Attack(Hero& hero, Enemy* p_enemy, int damageIn)
 {
 	FSL();
 	SetColor(ConsoleColor::Black, ConsoleColor::Red);
-	std::cout << " Battlelog:" << std::endl;
+    std::cout << " Battlelog: " << std::endl;
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 	FSL();
 
@@ -142,7 +142,7 @@ void LoseFight()
 	Sms("Try again!!!");
 	DSTgo();
 
-	exit(0);
+    system("restart");
 }
 
 void Fight(Hero& hero, std::string loc)
