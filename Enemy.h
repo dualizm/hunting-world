@@ -13,15 +13,19 @@ class Hero;
 class Enemy : public Person
 {
 protected:
-    std::vector<std::string> sprite;
     int chance;
 	int damage;
     ConsoleColor color;
+    std::vector<std::string> sprite;
+
+    int generateStat(int param);
+
+    float generateLvl(Person& h, float param);
 
 public:
 
-    Enemy(std::string name, float lvl, int health, int gold, int chance, int damage, ConsoleColor color, std::vector<std::string> sprite)
-        : Person(name, health, gold, lvl), sprite(sprite), chance(chance), damage(damage), color(color) {}
+    Enemy(std::string name, int health, int gold, float lvl)
+        : Person(name, health, gold, lvl) {}
 
 public:
 
@@ -30,10 +34,6 @@ public:
 	void showSprite();
 
 	void showStatus();
-
-	int generateStat(int param);
-
-	float generateLvl(Person& h, float param);
 
     virtual ConsoleColor getColor() = 0;
 
