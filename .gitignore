@@ -1,3 +1,4 @@
 
 # Don't include Qt file
-*.pro*
+*.pro
+HuntingWorld.pro.user
