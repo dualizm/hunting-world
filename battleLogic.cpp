@@ -61,7 +61,7 @@ int MenuGo(Hero& h)
 	FSL();
 	std::cout << "\n > ";
 
-	std::cin >> mode;
+    mode = checkInput();
 	system("cls");
 	return mode - '0';
 }

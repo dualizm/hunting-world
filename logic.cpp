@@ -33,7 +33,7 @@ char Menu()
 
 	FSL(); 
 	std::cout << "\n > ";
-	std::cin >> mode;
+    mode = checkInput();
 	system("cls");
 	return mode;
 }
