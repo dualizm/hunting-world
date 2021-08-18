@@ -167,7 +167,7 @@ void WeaponShop(Hero& hero) // WEAPON SELECTOR STORE
             choiceWeapon(hero,  std::make_shared<Gun>());
 			break;
 		case WeaponList::weaponBIGSSWORD:
-            choiceWeapon(hero,  std::make_shared<BigSword>());
+            choiceWeapon(hero,  std::make_shared<Cursedbow>());
 			break;
 		case WeaponList::weaponCROSSBOW:
             choiceWeapon(hero,  std::make_shared<Crossbow>());

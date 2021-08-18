@@ -21,11 +21,14 @@ private:
 
 public:
     const size_t sizeInv{6};
+    size_t resetSp;
 
     list_item inventory; // INVENTORY
 
     Hero(std::string name, int health, int gold, float lvl, int day, std::shared_ptr<Weapon> weapon)
-		: Person(name, health, gold, lvl), day(day), weapon(weapon) {}
+        : Person(name, health, gold, lvl), day(day), weapon(weapon) {
+        this->resetSp = 0;
+    }
 	
 	void Upday();
 	void PaymentTavern();

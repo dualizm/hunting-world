@@ -15,8 +15,19 @@ void Enemy::AttackHero(Person& hero)
 	}
 	else
 	{
-		std::cout << " He hit you at -" + std::to_string(damage) + " health!" << std::endl;
-		hero.SetHealth(hero.GetHealth() - damage);
+        std::mt19937 randAttack(static_cast<unsigned int>(time(0)));
+        int spEnemy = 0 + randAttack() % 100;
+        if(spEnemy > 80)
+        {
+            std::cout << " He used a special attack!" << std::endl;
+            std::cout << " He hit you at -" + std::to_string(damage * 2) + " health!" << std::endl;
+            hero.SetHealth(hero.GetHealth() - damage * 2);
+        }
+        else
+        {
+            std::cout << " He hit you at -" + std::to_string(damage) + " health!" << std::endl;
+            hero.SetHealth(hero.GetHealth() - damage);
+        }
 	}
 
 }

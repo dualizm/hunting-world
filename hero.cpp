@@ -97,6 +97,7 @@ void Hero::AttackEnemy(Hero& hero, Enemy* enemy, int damageInt)
 	{
         std::cout << " Special Attack Charge! " + weapon->getInfo(hero) << std::endl;
 		weapon->resultSpecialAttack(hero);
+        hero.resetSp = 3;
 	}
 	std::cout << " You attack the enemy!" << std::endl;
 
@@ -112,6 +113,8 @@ void Hero::AttackEnemy(Hero& hero, Enemy* enemy, int damageInt)
 		std::cout << " You hit him at -" + std::to_string(damageInt) + " health!" << std::endl;
 		enemy->SetHealth(enemy->GetHealth() - damageInt);
 	}
+
+    hero.resetSp == 0 ? hero.resetSp : hero.resetSp--;
 }
 
 void Hero::DebugcheatMode(int& health, int& gold, float& lvl, int& day)

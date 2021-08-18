@@ -11,13 +11,18 @@
 #include <functional>
 #include <ctime>
 
+void ShowBattlelogText()
+{
+    FSL();
+    SetColor(ConsoleColor::Black, ConsoleColor::Red);
+    std::cout << " Battlelog: " << std::endl;
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
+    FSL();
+}
+
 void Attack(Hero& hero, Enemy* p_enemy, int damageIn)
 {
-	FSL();
-	SetColor(ConsoleColor::Black, ConsoleColor::Red);
-    std::cout << " Battlelog: " << std::endl;
-	SetColor(ConsoleColor::White, ConsoleColor::Black);
-	FSL();
+    ShowBattlelogText();
 
 	Sleep(150);
 	hero.AttackEnemy(hero, p_enemy, damageIn);
@@ -33,19 +38,34 @@ void Attack(Hero& hero, Enemy* p_enemy, int damageIn)
 	DSTgo();
 }
 
+
+void SignalAttackReset()
+{
+    ShowBattlelogText();
+
+    std::cout << " Special attack is still on cooldown!";
+
+    Sleep(150);
+    DSTgo();
+}
+
 void TryEscape(Hero& hero, Enemy* p_enemy, bool& status)
 {
+    ShowBattlelogText();
+
+    Sleep(150);
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
 	int ch = 1 + mersenne() % 100;
 
 	if (ch >= 95)
 	{
-		Sms("Successful escape!");
+        std::cout << " Successful escape!\n";
+        DSTgo();
 		status = false;
 	}
 	else
 	{
-		Sms("Escape failed!");
+        std::cout << " Escape failed!\n";
 		p_enemy->AttackHero(hero);
 		DSTgo();
 		status = true;
@@ -117,7 +137,18 @@ void Solution(short& gch, Enemy* p_enemy, Hero& h)
 	int i = 1;
 	for (auto& str : menu_collection)
 	{
-		std::cout << " " << i << ")" << str << " |" << (i % 4 == 0 ? "\n" : "  ");
+        if(str == menu_collection[1] && h.resetSp > 0)
+        {
+            std::cout << " " << i << ")";
+            SetColor(ConsoleColor::LightRed, ConsoleColor::Black);
+            std::cout << str;
+            SetColor(ConsoleColor::White, ConsoleColor::Black);
+            std::cout << " |" << (i % 4 == 0 ? "\n" : "  ");
+        }
+        else
+        {
+            std::cout << " " << i << ")" << str << " |" << (i % 4 == 0 ? "\n" : "  ");
+        }
 		i++;
 	}
 
@@ -138,8 +169,7 @@ bool WinFight(Hero& hero, Enemy* p_enemy)
 void LoseFight()
 {
 	Sms("You died in battle!");
-	Sms("It's sad =(");
-	Sms("Try again!!!");
+    Sms("GAME OVER");
 	DSTgo();
 
     exit(0);
@@ -171,7 +201,10 @@ void Fight(Hero& hero, std::string loc)
 				Attack(hero, p_enemy, hero.GetWeaponAttack());
 				break;
 			case FightList::fightSPECIAL:
-                Attack(hero, p_enemy, hero.GetWeaponAttackS());
+                if(hero.resetSp > 0)
+                    SignalAttackReset();
+                else
+                    Attack(hero, p_enemy, hero.GetWeaponAttackS());
 				break;
 			case FightList::fightINV:
 				Inventory(hero);
@@ -188,6 +221,9 @@ void Fight(Hero& hero, std::string loc)
 			LoseFight();
 
 		if (p_enemy->GetHealth() <= 0 && hero.GetHealth() > 0)
+        {
 			fight = WinFight(hero, p_enemy);
+            hero.resetSp = 0;
+        }
 	}
 }

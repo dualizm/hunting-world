@@ -15,12 +15,13 @@ public:
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.GetHealth() - (5 + hero.GetLvl()));
+        hero.SetHealth(hero.GetHealth());
     }
 
     std::string getInfo(Hero& hero) override
     {
-        return "-" + std::to_string(5 + hero.GetLvl()) + " your health";
+        hero.SetHealth(hero.GetHealth()); // plug
+        return " ";
     }
 };
 
@@ -36,12 +37,13 @@ public:
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.GetHealth() - (5 + hero.GetLvl()));
+        hero.SetHealth(hero.GetHealth());
     }
 
     std::string getInfo(Hero& hero) override
     {
-        return "-" + std::to_string(5 + hero.GetLvl()) + " your health";
+        hero.SetHealth(hero.GetHealth()); // plug
+        return " ";
     }
 };
 
@@ -57,34 +59,35 @@ public:
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.GetHealth() - (5 + hero.GetLvl()));
+        hero.SetHealth(hero.GetHealth());
     }
 
     std::string getInfo(Hero& hero) override
     {
-        return "-" + std::to_string(5 + hero.GetLvl()) + " your health";
+        hero.SetHealth(hero.GetHealth()); // plug
+        return " ";
     }
 
 };
 
-class BigSword : public Weapon
+class Cursedbow : public Weapon
 {
 public:
-	BigSword() : Weapon(70, "BigSword", 60.0f, 1600) {}
+    Cursedbow() : Weapon(70, "Cursedbow", 60.0f, 1600) {}
 
     int getDamageSpecialAttack() override
     {
-        return this->getDamage() + 5;
+        return this->getDamage() * 2;
     }
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.GetHealth() - (hero.GetLvl()));
+        hero.SetHealth(hero.GetHealth() - (10 + hero.GetLvl()));
     }
 
     std::string getInfo(Hero& hero) override
     {
-        return "-" + std::to_string(hero.GetLvl()) + " your health";
+        return "-" + std::to_string(10 + hero.GetLvl()) + " your health";
     }
 
 };

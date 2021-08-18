@@ -64,7 +64,7 @@ void WeaponChoice(short& gch)
 	std::cout << " Welcome to \"Iron Fist\" Store!";
 	std::cout << " What do you want to buy?\n";
 
-    std::vector<Weapon*> cWp{ new Sword(), new Gun(), new BigSword(), new Crossbow() };
+    std::vector<Weapon*> cWp{ new Sword(), new Gun(), new Cursedbow(), new Crossbow() };
 
 	FSL();
 	int i = 1;
