@@ -139,9 +139,8 @@ void Solution(short& gch, Enemy* p_enemy, Hero& h)
 	{
         if(str == menu_collection[1] && h.resetSp > 0)
         {
-            std::cout << " " << i << ")";
             SetColor(ConsoleColor::LightRed, ConsoleColor::Black);
-            std::cout << str;
+            std::cout << " " << i << ")" << str;
             SetColor(ConsoleColor::White, ConsoleColor::Black);
             std::cout << " |" << (i % 4 == 0 ? "\n" : "  ");
         }
@@ -169,7 +168,11 @@ bool WinFight(Hero& hero, Enemy* p_enemy)
 void LoseFight()
 {
 	Sms("You died in battle!");
-    Sms("GAME OVER");
+
+    SetColor(ConsoleColor::LightRed, ConsoleColor::Black);
+    Sms(" GAME-OVER ");
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
+
 	DSTgo();
 
     exit(0);
