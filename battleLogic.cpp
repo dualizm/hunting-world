@@ -12,6 +12,8 @@
 #include "HeirsOfAnWeapon.h"
 #include "LocationLogic.h"
 #include "Listgui.h"
+#include "Color.h"
+#include "LocationLogic.h"
 
 void Inventory(Hero& hero);
 
@@ -71,6 +73,7 @@ void FindLocation(Hero& hero)
 		locMISTERYFOREST = 1,
 		locOLDCASTLE = 2,
 		locSACREDMOUNTAINS = 3,
+        locCAVEOFTIME = 4,
 		locExit = 0
 	};
 
@@ -93,6 +96,16 @@ void FindLocation(Hero& hero)
 		case LocList::locSACREDMOUNTAINS:
             GoOnLoc(hero, location_collection[2]);
 			break;
+        case LocList::locCAVEOFTIME:
+            if(hero.GetDay() % 15 == 0)
+            {
+                GoOnLoc(hero, location_collection[3]);
+            }
+            else
+            {
+                ErrorFindLocation();
+            }
+            break;
 		case LocList::locExit:
             fight = false;
 			break;
@@ -108,9 +121,6 @@ void Tavern(Hero& h)
 {
 	system("cls");
 	FootnoteB();
-
-	if (h.GetDay() >= 30)
-		WinThisGame();
 
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
 	int chance = 0 + mersenne() % 100;

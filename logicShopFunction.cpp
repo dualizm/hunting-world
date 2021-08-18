@@ -4,9 +4,11 @@
 #include "HeirsOfAnWeapon.h"
 #include "Logic.h"
 #include "Color.h"
+#include "ItemClass.h"
 
 #include <iomanip>
 #include <memory>
+#include <vector>
 
 void ItemChoice(short& gch)
 {

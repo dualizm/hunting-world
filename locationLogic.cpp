@@ -9,6 +9,15 @@
 
 #include <vector>
 
+void ErrorFindLocation()
+{
+    SetColor(ConsoleColor::LightBlue, ConsoleColor::Black);
+    Sms("You try to find your way, but the magical light takes you off the path.");
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
+
+    DSTgo();
+}
+
 void LocationChoice(short& gch)
 {
 	FSL();

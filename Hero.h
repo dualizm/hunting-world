@@ -1,11 +1,9 @@
 #pragma once
 #include <list>
 #include <memory>
-
-#include "ItemClass.h"
-#include "Weapon.h"
-#include "Enemy.h"
 #include "Sms.h"
+#include "Person.h"
+
 class Item;
 class Enemy;
 class Weapon;

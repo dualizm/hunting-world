@@ -1,6 +1,7 @@
 #include "SupportFunctions.h"
 #include "ModulePerson.h"
 #include "Logic.h"
+#include "ItemClass.h"
 #include <iomanip>
 
 void DisplayInventory(Hero& hero)

@@ -1,7 +1,10 @@
 #include "Hero.h"
 #include "Color.h"
+#include "Weapon.h"
 #include <iomanip>
 #include <memory>
+#include <random>
+#include "Enemy.h"
 
 void Hero::Upday() { day++; }
 

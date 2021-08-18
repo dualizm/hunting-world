@@ -1,16 +1,18 @@
 #include "SupportFunctions.h"
 #include "Color.h"
 
+#if 0
 void WinThisGame()
 {
 	system("cls");
 	Footnote();
-	std::cout << " YOU WIN THIS GAMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!";
+    std::cout << " You kill the great dragon";
 	Sleep(1500);
 	std::cout << " Bye ;3";
 
 	exit(0);
 }
+#endif
 
 void Menu(short& mode)
 {
