@@ -17,7 +17,7 @@ void Menu(short& mode)
 	FSL();
 	FootnoteL();
 	SetColor(ConsoleColor::Black, ConsoleColor::Red);
-	std::cout <<" Hunting world\n";
+    std::cout <<" Hunting world \n";
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 	FootnoteL();
 	FSL();

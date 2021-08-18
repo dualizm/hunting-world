@@ -120,7 +120,7 @@ Enemy* Notification(Hero& hero, std::string loc)
 
 void Solution(short& gch, Enemy* p_enemy, Hero& h)
 {
-	std::vector<std::string> menu_collection = { {" Attack"}, {" Special attack"}, {" Open inventory"}, {" Try to escape"}};
+    std::vector<std::string> menu_collection = { {"Attack"}, {"Special attack"}, {"Open inventory"}, {"Try to escape"}};
 
 	FSL();
     SetColor(p_enemy->getColor(), ConsoleColor::Black);
@@ -139,14 +139,14 @@ void Solution(short& gch, Enemy* p_enemy, Hero& h)
 	{
         if(str == menu_collection[1] && h.resetSp > 0)
         {
-            SetColor(ConsoleColor::LightRed, ConsoleColor::Black);
-            std::cout << " " << i << ")" << str;
+            SetColor(ConsoleColor::Red, ConsoleColor::Black);
+            std::cout << " [" << i << "|" << str << "]";
             SetColor(ConsoleColor::White, ConsoleColor::Black);
-            std::cout << " |" << (i % 4 == 0 ? "\n" : "  ");
+            std::cout << (i % 4 == 0 ? "\n" : "");
         }
         else
         {
-            std::cout << " " << i << ")" << str << " |" << (i % 4 == 0 ? "\n" : "  ");
+            std::cout <<  " [" << i << "|" << str << "]" << (i % 4 == 0 ? "\n" : " ");
         }
 		i++;
 	}
@@ -170,7 +170,7 @@ void LoseFight()
 	Sms("You died in battle!");
 
     SetColor(ConsoleColor::LightRed, ConsoleColor::Black);
-    Sms(" GAME-OVER ");
+    Sms(" [=GAME-OVER=] ");
     SetColor(ConsoleColor::White, ConsoleColor::Black);
 
 	DSTgo();

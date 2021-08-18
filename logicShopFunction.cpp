@@ -13,7 +13,7 @@ void ItemChoice(short& gch)
 	FSL();
 	FootnoteL();
 	SetColor(ConsoleColor::Black, ConsoleColor::Red);
-	std::cout << " Rabbit's Foot" << std::endl;
+    std::cout << " Rabbit's Foot " << std::endl;
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 	FootnoteL();
 	FSL();
@@ -56,7 +56,7 @@ void WeaponChoice(short& gch)
 	FSL();
 	FootnoteL();
 	SetColor(ConsoleColor::Black, ConsoleColor::Red);
-	std::cout << " Iron Fist" << std::endl;
+    std::cout << " Iron Fist " << std::endl;
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 	FootnoteL();
 
