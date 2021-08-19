@@ -129,12 +129,12 @@ void Tavern(Hero& h)
     if (chance >= 70)
 	{
 		std::cout << " WELL rested at the tavern!";
-		h.SetHealth(150);
+        h.SetHealth(h.getMaxHealth() + 100);
 	}
 	else
 	{
 		std::cout << " You rested in a tavern!";
-		h.SetHealth(100);
+        h.SetHealth(h.getMaxHealth());
 	}
 
 	h.upDay();
@@ -149,16 +149,17 @@ void LackOfGoldT(Hero& hero)
 	DSTgo();
 }
 
+enum class WeaponList
+{
+    weaponSWORD = 1,
+    weaponGUN = 2,
+    weaponBIGSSWORD = 3,
+    weaponCROSSBOW = 4,
+    weaponEXIT = 0
+};
+
 void WeaponShop(Hero& hero) // WEAPON SELECTOR STORE
 {
-	enum WeaponList
-	{
-		weaponSWORD = 1,
-		weaponGUN = 2,
-		weaponBIGSSWORD = 3,
-		weaponCROSSBOW = 4,
-		weaponEXIT = 0
-	};
 
 	bool weaponShop{ true };
 	short getchoice;
@@ -170,19 +171,19 @@ void WeaponShop(Hero& hero) // WEAPON SELECTOR STORE
 
 		switch (getchoice)
 		{
-		case WeaponList::weaponSWORD:
+        case static_cast<int>(WeaponList::weaponSWORD):
             choiceWeapon(hero, std::make_shared<Sword>());
 			break;
-		case WeaponList::weaponGUN:
+        case static_cast<int>(WeaponList::weaponGUN):
             choiceWeapon(hero,  std::make_shared<Gun>());
 			break;
-		case WeaponList::weaponBIGSSWORD:
+        case static_cast<int>(WeaponList::weaponBIGSSWORD):
             choiceWeapon(hero,  std::make_shared<Cursedbow>());
 			break;
-		case WeaponList::weaponCROSSBOW:
+        case static_cast<int>(WeaponList::weaponCROSSBOW):
             choiceWeapon(hero,  std::make_shared<Crossbow>());
 			break;
-		case WeaponList::weaponEXIT:
+        case static_cast<int>(WeaponList::weaponEXIT):
 			weaponShop = false;
 			break;
 		default:

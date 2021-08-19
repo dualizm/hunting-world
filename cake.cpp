@@ -17,5 +17,6 @@ int Cake::getPrice()
 
 std::string Cake::info()
 {
-    return "It's a lie!";
+    return " 1"
+"1It's a lie!";
 }
