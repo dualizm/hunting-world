@@ -97,11 +97,11 @@ namespace sprites {
 
         static std::vector<std::string> skeleton = {
             {"        ___-------___         "},
-            {"     ,``             ``,      "},
-            {"    .` `.              `.     "},
-            {"   ;     `               ;    "},
+            {"     ,``        `   ``,      "},
+            {"    .` `.        ``    `.     "},
+            {"   ;     `        `      ;    "},
             {"   |   ,---,     ,---,   |    "},
-            {"   |  |  o  \\}  \\{ o  |  |    "},
+            {"   |  |  o \\}   \\{ o  |  |    "},
             {"    |  `---``.^. ``---` |     "},
             {"    |       `-`-`       |     "},
             {"    \\                  /     "},
@@ -125,7 +125,47 @@ namespace sprites {
         };
     }
 
-    namespace Cave_of_time {
+    namespace Sacred_mountains
+    {
+        static std::vector<std::string> angel = {
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""}
+        };
+
+        static std::vector<std::string> stone_golem = {
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""}
+        };
+
+        static std::vector<std::string> fire_spirit = {
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""},
+            {""}
+        };
+    }
+
+    namespace Cave_of_time
+    {
 
     static std::vector<std::string> great_dragon = {
         {""},
