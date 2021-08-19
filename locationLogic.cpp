@@ -70,7 +70,7 @@ void GoOnLoc(Hero& hero, std::string loc)
 		FExit = 0
 	};
 
-	std::vector<std::string> mFch{ {"Find the enemy"} };
+    std::vector<std::string> mFch{ {"Find the enemy"} };
 
 	bool check{ true };
 	short getchoice;

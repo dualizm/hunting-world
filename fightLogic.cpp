@@ -94,13 +94,17 @@ Enemy* Notification(Hero& hero, std::string loc)
         {
             return new FSlime(hero);
         }
-        else if (chance >= 80 && chance < 98)
+        else if (chance >= 80 && chance < 98 && hero.getDay() > 1)
         {
             return new SlimeBoss(hero);
         }
-        else if (chance >= 99)
+        else if (chance >= 99 && hero.getDay() > 1)
         {
             return new RSlimeBoss(hero);
+        }
+        else
+        {
+            return new Goblin(hero);
         }
     }
     else if(loc == location_collection[1])
@@ -121,6 +125,10 @@ Enemy* Notification(Hero& hero, std::string loc)
     else if(loc == location_collection[2])
     {
 		return new SlimeBoss(hero);
+    }
+    else if(loc == location_collection[3])
+    {
+        return new GreatDragon(hero);
     }
 
 	return new Goblin(hero);
@@ -186,15 +194,16 @@ void LoseFight()
     exit(0);
 }
 
+enum class FightList
+{
+    fightATTACK = 1,
+    fightSPECIAL = 2,
+    fightINV = 3,
+    fightRUN = 4,
+};
+
 void Fight(Hero& hero, std::string loc)
 {
-	enum FightList
-	{
-		fightATTACK = 1,
-		fightSPECIAL = 2,
-		fightINV = 3,
-		fightRUN = 4,
-	};
 
     Enemy* p_enemy = Notification(hero, loc);
 
@@ -208,19 +217,19 @@ void Fight(Hero& hero, std::string loc)
 
 		switch (getchoice)
 		{
-			case FightList::fightATTACK:
+            case static_cast<int>(FightList::fightATTACK):
 				Attack(hero, p_enemy, hero.getWeaponAttack());
 				break;
-			case FightList::fightSPECIAL:
+            case static_cast<int>(FightList::fightSPECIAL):
                 if(hero.resetSp > 0)
                     SignalAttackReset();
                 else
                     Attack(hero, p_enemy, hero.getWeaponAttackS());
 				break;
-			case FightList::fightINV:
+            case static_cast<int>(FightList::fightINV):
 				Inventory(hero);
 				break;
-			case FightList::fightRUN:
+            case static_cast<int>(FightList::fightRUN):
 				TryEscape(hero, p_enemy, fight);
 				break;
 			default:
@@ -237,4 +246,6 @@ void Fight(Hero& hero, std::string loc)
             hero.resetSp = 0;
         }
 	}
+
+    delete p_enemy;
 }

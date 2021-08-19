@@ -1,5 +1,6 @@
 #pragma once
 #include "Enemy.h"
+#include "Logic.h"
 
 class Slime : public Enemy
 {
@@ -136,4 +137,38 @@ public:
 	{
 		return 0.2f;
 	}
+};
+
+class GreatDragon : public Enemy
+{
+public:
+    GreatDragon(Person& h) : Enemy("", 0, 0, 0)
+    {
+        this->name = "GreatDragon";
+        this->lvl = generateLvl(h, 45);
+
+        this->health = 1000;
+        this->gold = generateStat(5000);
+        this->chance = 80;
+        this->damage = 20;
+        this->color = ConsoleColor::Yellow;
+        this->sprite = sprites::Cave_of_time::great_dragon;
+    }
+
+    ConsoleColor getColor() override
+    {
+        return color;
+    }
+
+    float getExp() override
+    {
+        return 0.2f;
+    }
+
+
+    ~GreatDragon()
+    {
+        WinThisGame();
+    }
+
 };

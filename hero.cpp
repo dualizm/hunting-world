@@ -104,9 +104,9 @@ void Hero::showStatus()
 
 }
 
-void Hero::attackEnemy(Hero& hero, Enemy* enemy, int damageInt)
+void Hero::attackEnemy(Hero& hero, Enemy* enemy, int damageIn)
 {
-    if (damageInt == weapon->getDamageSpecialAttack())
+    if (damageIn == weapon->getDamageSpecialAttack())
 	{
         std::cout << " Special Attack Charge! " + weapon->getInfo(hero) << std::endl;
 		weapon->resultSpecialAttack(hero);
@@ -123,8 +123,8 @@ void Hero::attackEnemy(Hero& hero, Enemy* enemy, int damageInt)
 	}
 	else
 	{
-		std::cout << " You hit him at -" + std::to_string(damageInt) + " health!" << std::endl;
-        enemy->SetHealth(enemy->getHealth() - damageInt);
+        std::cout << " You hit him at -" + std::to_string(damageIn) + " health!" << std::endl;
+        enemy->SetHealth(enemy->getHealth() - damageIn);
 	}
 
     hero.resetSp == 0 ? hero.resetSp : hero.resetSp--;

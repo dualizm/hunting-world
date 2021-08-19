@@ -1,18 +1,14 @@
 #include "SupportFunctions.h"
 #include "Color.h"
+#include "Sms.h"
 
-#if 0
 void WinThisGame()
 {
-	system("cls");
-	Footnote();
-    std::cout << " You kill the great dragon";
-	Sleep(1500);
-	std::cout << " Bye ;3";
-
+    Sms("You kill the great dragon");
+    std::cout << " Bye ;3";
+    DSTgo();
 	exit(0);
 }
-#endif
 
 void Menu(short& mode)
 {

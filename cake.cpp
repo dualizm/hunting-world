@@ -1,8 +1,11 @@
 #include "HeirsOfAnItem.h"
+#include "Sms.h"
 
 void Cake::use(Hero& hero)
 {
-    hero.addHealth(666);
+    Sms("It's a lie! add +" + std::to_string(hero.getHealth() + 50));
+    hero.addHealth(hero.getHealth() + 50);
+    DSTgo();
 }
 
 std::string Cake::getName()
@@ -17,6 +20,5 @@ int Cake::getPrice()
 
 std::string Cake::info()
 {
-    return " 1"
-"1It's a lie!";
+    return " add +500 hp";
 }
