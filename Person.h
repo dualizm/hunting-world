@@ -15,10 +15,10 @@ public:
 	Person(std::string name, int health, int gold, float lvl)
 		: health(health), gold(gold), lvl(lvl), name(name) {}
 
-	std::string GetName() { return name; }
-	int GetHealth() { return health; }
-	int GetGold() { return gold; }
-	int GetLvl() { return static_cast<int>(lvl); }
+    std::string getName() { return name; }
+    int getHealth() { return health; }
+    int getGold() { return gold; }
+    int getLvl() { return static_cast<int>(lvl); }
 	void SetHealth(int health) { this->health = health; }
 
 	virtual ~Person() {}

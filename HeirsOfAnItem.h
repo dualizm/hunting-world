@@ -11,17 +11,17 @@ public:
 	BottleHealth()
 	{
 		this->name = "Potion of Healing";
-		this->price = 400;
+        this->price = 300;
 		this->health = 50;
 	}
 
-	void Use(Hero& hero) override;
+    void use(Hero& hero) override;
 
-	std::string GetName() override;
+    std::string getName() override;
 
-	int GetPrice() override;
+    int getPrice() override;
 
-	std::string Info() override;
+    std::string info() override;
 
 	~BottleHealth() override {}
 
@@ -38,20 +38,67 @@ public:
 	{
 		this->name = "Medicative herb";
 		this->price = 125;
-		this->health = 15;
+        this->health = 30;
 	}
 
 
-	void Use(Hero& hero) override;
+    void use(Hero& hero) override;
 
-	std::string GetName() override;
+    std::string getName() override;
 
-	int GetPrice() override;
+    int getPrice() override;
 
-	std::string Info() override;
+    std::string info() override;
 
 	~MedicinalHerb() override {}
 
+};
+
+class HealthScroll : public Item
+{
+private:
+    int health;
+
+public:
+
+    HealthScroll()
+    {
+        this->name = "HealthScroll";
+        this->price = 650;
+        this->health = 100;
+    }
+
+
+    void use(Hero& hero) override;
+
+    std::string getName() override;
+
+    int getPrice() override;
+
+    std::string info() override;
+
+    ~HealthScroll() override {}
+};
+
+class Cake : public Item
+{
+public:
+    Cake()
+    {
+        this->name = "Cake";
+        this->price = 3500;
+    }
+
+
+    void use(Hero& hero) override;
+
+    std::string getName() override;
+
+    int getPrice() override;
+
+    std::string info() override;
+
+    ~Cake() override {}
 };
 
 

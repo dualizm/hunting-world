@@ -22,7 +22,7 @@ public:
         return color;
     }
 
-    float GetExp() override
+    float getExp() override
     {
         return 0.2f;
     }
@@ -51,7 +51,7 @@ public:
         return color;
     }
 
-	float GetExp() override
+	float getExp() override
 	{
         return 0.3f;
 	}
@@ -78,7 +78,7 @@ public:
         return color;
     }
 
-	float GetExp() override
+	float getExp() override
 	{
 		return 0.5f;
 	}
@@ -105,7 +105,7 @@ public:
         return color;
     }
 
-    float GetExp() override
+    float getExp() override
     {
         return 0.5f;
     }
@@ -132,7 +132,7 @@ public:
         return color;
     }
 
-	float GetExp() override
+	float getExp() override
 	{
 		return 0.2f;
 	}

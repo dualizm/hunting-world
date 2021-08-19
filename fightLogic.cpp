@@ -25,13 +25,13 @@ void Attack(Hero& hero, Enemy* p_enemy, int damageIn)
     ShowBattlelogText();
 
 	Sleep(150);
-	hero.AttackEnemy(hero, p_enemy, damageIn);
-	if (p_enemy->GetHealth() <= 0 && hero.GetHealth() > 0)
+	hero.attackEnemy(hero, p_enemy, damageIn);
+	if (p_enemy->getHealth() <= 0 && hero.getHealth() > 0)
 	{
 		DSTgo();
 		return;
 	}
-	p_enemy->AttackHero(hero);
+	p_enemy->attackHero(hero);
 	Sleep(150);
 	FSL();
 
@@ -66,7 +66,7 @@ void TryEscape(Hero& hero, Enemy* p_enemy, bool& status)
 	else
 	{
         std::cout << " Escape failed!\n";
-		p_enemy->AttackHero(hero);
+		p_enemy->attackHero(hero);
 		DSTgo();
 		status = true;
 	}
@@ -167,8 +167,8 @@ void Solution(short& gch, Enemy* p_enemy, Hero& h)
 bool WinFight(Hero& hero, Enemy* p_enemy)
 {
 	Sms("You won this fight\n Congratulations!");
-	hero.AddGold(p_enemy->GetGold());
-	hero.LvlUp(p_enemy->GetExp());
+	hero.addGold(p_enemy->getGold());
+	hero.lvlUp(p_enemy->getExp());
 
 	return false;
 }
@@ -209,13 +209,13 @@ void Fight(Hero& hero, std::string loc)
 		switch (getchoice)
 		{
 			case FightList::fightATTACK:
-				Attack(hero, p_enemy, hero.GetWeaponAttack());
+				Attack(hero, p_enemy, hero.getWeaponAttack());
 				break;
 			case FightList::fightSPECIAL:
                 if(hero.resetSp > 0)
                     SignalAttackReset();
                 else
-                    Attack(hero, p_enemy, hero.GetWeaponAttackS());
+                    Attack(hero, p_enemy, hero.getWeaponAttackS());
 				break;
 			case FightList::fightINV:
 				Inventory(hero);
@@ -228,10 +228,10 @@ void Fight(Hero& hero, std::string loc)
 				break;
 		}
 
-		if (hero.GetHealth() <= 0)
+		if (hero.getHealth() <= 0)
 			LoseFight();
 
-		if (p_enemy->GetHealth() <= 0 && hero.GetHealth() > 0)
+		if (p_enemy->getHealth() <= 0 && hero.getHealth() > 0)
         {
 			fight = WinFight(hero, p_enemy);
             hero.resetSp = 0;

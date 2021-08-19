@@ -29,7 +29,7 @@ public:
 
 public:
 
-	void AttackHero(Person& hero);
+    void attackHero(Person& hero);
 
 	void showSprite();
 
@@ -37,7 +37,7 @@ public:
 
     virtual ConsoleColor getColor() = 0;
 
-	virtual float GetExp() = 0;
+    virtual float getExp() = 0;
 
 	virtual ~Enemy() {}
 };

@@ -15,12 +15,12 @@ public:
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.GetHealth());
+        hero.SetHealth(hero.getHealth());
     }
 
     std::string getInfo(Hero& hero) override
     {
-        hero.SetHealth(hero.GetHealth()); // plug
+        hero.SetHealth(hero.getHealth()); // plug
         return " ";
     }
 };
@@ -37,12 +37,12 @@ public:
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.GetHealth());
+        hero.SetHealth(hero.getHealth());
     }
 
     std::string getInfo(Hero& hero) override
     {
-        hero.SetHealth(hero.GetHealth()); // plug
+        hero.SetHealth(hero.getHealth()); // plug
         return " ";
     }
 };
@@ -59,12 +59,12 @@ public:
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.GetHealth());
+        hero.SetHealth(hero.getHealth());
     }
 
     std::string getInfo(Hero& hero) override
     {
-        hero.SetHealth(hero.GetHealth()); // plug
+        hero.SetHealth(hero.getHealth()); // plug
         return " ";
     }
 
@@ -82,12 +82,12 @@ public:
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.GetHealth() - (10 + hero.GetLvl()));
+        hero.SetHealth(hero.getHealth() - (10 + hero.getLvl()));
     }
 
     std::string getInfo(Hero& hero) override
     {
-        return "-" + std::to_string(10 + hero.GetLvl()) + " your health";
+        return "-" + std::to_string(10 + hero.getLvl()) + " your health";
     }
 
 };
@@ -104,12 +104,12 @@ public:
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.GetHealth() + (10 + hero.GetLvl()));
+        hero.SetHealth(hero.getHealth() + (10 + hero.getLvl()));
     }
 
     std::string getInfo(Hero& hero) override
     {
-        return "+" + std::to_string(10 + hero.GetLvl()) + " your health";
+        return "+" + std::to_string(10 + hero.getLvl()) + " your health";
     }
 
 };

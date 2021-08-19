@@ -33,7 +33,7 @@ void GetName(std::string& name)
 void BattleMode()
 {
 	int health{ 100 }, gold{ 0 }, day{ 1 }; float lvl{ 1.0f };
-	Hero::DebugcheatMode(health, gold, lvl, day); system("cls");
+    Hero::debugcheatMode(health, gold, lvl, day); system("cls");
 
     std::string name; GetName(name);     // Get the player's name
     Hero hero(name, health, gold, lvl, day, std::make_shared<Fists>()); // Create a hero
@@ -50,7 +50,7 @@ void BattleMode()
 			FindLocation(hero);
 			break;
         case List::TAVERN: // Rest in the tavern! REALIZED
-			if (hero.GetGold() < 150 * hero.GetDay())
+            if (hero.getGold() < 150 * hero.getDay())
 				LackOfGoldT(hero);
 			else
 				Tavern(hero);

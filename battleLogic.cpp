@@ -21,30 +21,30 @@ int MenuGo(Hero& h)
 {
 	FSL();
 
-        std::cout << "\n " << h.GetName() << " state:\n\n" <<
+        std::cout << "\n " << h.getName() << " state:\n\n" <<
         " Health: " << std::setw(4);
 
         SetColor(ConsoleColor::LightGreen, ConsoleColor::Black);
-        std::cout << h.GetHealth();
+        std::cout << h.getHealth();
         SetColor(ConsoleColor::White, ConsoleColor::Black);
 
         std::cout << "  |  " << std::setw(9) << " Weapon: ";
         SetColor(ConsoleColor::Cyan, ConsoleColor::Black);
-        std::cout << h.GetWeaponName();
+        std::cout << h.getWeaponName();
         SetColor(ConsoleColor::White, ConsoleColor::Black);
 
         std::cout << "\n" << " Gold: " << std::setw(6);
         SetColor(ConsoleColor::Yellow, ConsoleColor::Black);
-        std::cout << h.GetGold();
+        std::cout << h.getGold();
         SetColor(ConsoleColor::White, ConsoleColor::Black);
 
         std::cout << "  |  "  << std::setw(9) << " Attack: " << std::setw(-4);
         SetColor(ConsoleColor::Red, ConsoleColor::Black);
-        std::cout << h.GetAttack();
+        std::cout << h.getAttack();
         SetColor(ConsoleColor::White, ConsoleColor::Black);
 
         std::cout << "\n\n" <<
-            " Day: " << h.GetDay() << "  |  " << "Level: " << h.GetLvl();
+            " Day: " << h.getDay() << "  |  " << "Level: " << h.getLvl();
 
         std::cout << "\n\n";
 
@@ -97,7 +97,7 @@ void FindLocation(Hero& hero)
             GoOnLoc(hero, location_collection[2]);
 			break;
         case LocList::locCAVEOFTIME:
-            if(hero.GetDay() % 15 == 0)
+            if(hero.getDay() % 15 == 0)
             {
                 GoOnLoc(hero, location_collection[3]);
             }
@@ -125,8 +125,8 @@ void Tavern(Hero& h)
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
 	int chance = 0 + mersenne() % 100;
 
-	h.PaymentTavern();
-	if (chance >= 80)
+	h.paymentTavern();
+    if (chance >= 70)
 	{
 		std::cout << " WELL rested at the tavern!";
 		h.SetHealth(150);
@@ -137,7 +137,7 @@ void Tavern(Hero& h)
 		h.SetHealth(100);
 	}
 
-	h.Upday();
+	h.upDay();
 
 	Sleep(2000);
 	DSTgo();
@@ -145,7 +145,7 @@ void Tavern(Hero& h)
 
 void LackOfGoldT(Hero& hero)
 {
-	Sms("You don't have enough gold to rest in the tavern!\n You need " + std::to_string(150 * hero.GetDay()) + " gold");
+	Sms("You don't have enough gold to rest in the tavern!\n You need " + std::to_string(150 * hero.getDay()) + " gold");
 	DSTgo();
 }
 
@@ -193,14 +193,17 @@ void WeaponShop(Hero& hero) // WEAPON SELECTOR STORE
 	}
 }
 
+enum class ItemList
+{
+    itemHERB = 1,
+    itemPOTION = 2,
+    itemHEALTHSCROLL = 3,
+    itemCAKE = 4,
+    itemEXIT = 0
+};
+
 void ItemStore(Hero& hero) // STORE SELECTION OF OBJECTS
 {
-	enum ItemList
-	{
-		itemHERB = 1,
-		itemPOTION = 2,
-		itemEXIT = 0
-	};
 
 	bool itemStore{ true };
 	short getchoice;
@@ -212,13 +215,19 @@ void ItemStore(Hero& hero) // STORE SELECTION OF OBJECTS
 
 		switch (getchoice)
 		{
-		case ItemList::itemHERB:
+        case static_cast<int>(ItemList::itemHERB):
             choiceItem(hero, std::make_shared<MedicinalHerb>());
 			break;
-		case ItemList::itemPOTION:
+        case static_cast<int>(ItemList::itemPOTION):
             choiceItem(hero, std::make_shared<BottleHealth>());
 			break;
-		case ItemList::itemEXIT:
+        case static_cast<int>(ItemList::itemHEALTHSCROLL):
+            choiceItem(hero, std::make_shared<HealthScroll>());
+            break;
+        case static_cast<int>(ItemList::itemCAKE):
+            choiceItem(hero, std::make_shared<Cake>());
+            break;
+        case static_cast<int>(ItemList::itemEXIT):
 			itemStore = false;
 			break;
 		default:

@@ -6,59 +6,69 @@
 #include <random>
 #include "Enemy.h"
 
-void Hero::Upday() { day++; }
+void Hero::upDay() { day++; }
 
-void Hero::PaymentTavern()
+void Hero::paymentTavern()
 {
 	gold -= 150 * day;
 }
 
-void Hero::Buy(int price)
+void Hero::buy(int price)
 {
 	gold -= price;
 }
 
-int Hero::GetDay()
+int Hero::getDay()
 { 
 	return day;
 }
 
-void Hero::AddGold(int newGold) 
+int Hero::getMaxHealth()
+{
+    return (100 - 10) + (10 * getLvl());
+}
+
+void Hero::addGold(int newGold)
 { 
 	gold += newGold;
 }
 
-void Hero::Health(int health)
+void Hero::addHealth(int health)
 { 
 	this->health += health;
 }
 
-int Hero::GetAttack() 
+int Hero::getAttack()
 { 
 	return weapon->getDamage();
 }
 
-std::string Hero::GetWeaponName() 
+std::string Hero::getWeaponName()
 { 
 	return weapon->getName();
 }
 
-int Hero::GetWeaponAttack() 
+int Hero::getWeaponAttack()
 {
 	return weapon->getDamage();
 }
 
-int Hero::GetWeaponAttackS()
+int Hero::getWeaponAttackS()
 {
     return weapon->getDamageSpecialAttack();
 }
 
-void Hero::LvlUp(float exp)
+size_t Hero::getMaxSizeInventory()
+{
+    return 6;
+}
+
+void Hero::lvlUp(float exp)
 {
 	lvl += exp; 
 }
 
-void Hero::SwapWeapon(std::shared_ptr<Weapon> alt_w)
+void Hero::swapWeapon(std::shared_ptr<Weapon> alt_w)
 {
     std::swap(weapon, alt_w);
 }
@@ -72,12 +82,12 @@ void Hero::showStatus()
 
 	std::cout << " | " << " Health: ";
 	SetColor(ConsoleColor::Green, ConsoleColor::Black);
-	std::cout << std::setw(4) << health;
+    std::cout << std::setw(4) << getHealth();
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 
 	std::cout << " | " << " Level: ";
 	SetColor(ConsoleColor::Yellow, ConsoleColor::Black);
-	std::cout << GetLvl();
+    std::cout << getLvl();
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 
 	std::cout << " | " << " Damage: ";
@@ -94,7 +104,7 @@ void Hero::showStatus()
 
 }
 
-void Hero::AttackEnemy(Hero& hero, Enemy* enemy, int damageInt)
+void Hero::attackEnemy(Hero& hero, Enemy* enemy, int damageInt)
 {
     if (damageInt == weapon->getDamageSpecialAttack())
 	{
@@ -114,13 +124,13 @@ void Hero::AttackEnemy(Hero& hero, Enemy* enemy, int damageInt)
 	else
 	{
 		std::cout << " You hit him at -" + std::to_string(damageInt) + " health!" << std::endl;
-		enemy->SetHealth(enemy->GetHealth() - damageInt);
+        enemy->SetHealth(enemy->getHealth() - damageInt);
 	}
 
     hero.resetSp == 0 ? hero.resetSp : hero.resetSp--;
 }
 
-void Hero::DebugcheatMode(int& health, int& gold, float& lvl, int& day)
+void Hero::debugcheatMode(int& health, int& gold, float& lvl, int& day)
 {
 	int chek;
     std::cout << " Enter game mode (0 - gamemod, 1 - godmode, 2 - auto godmode): ";

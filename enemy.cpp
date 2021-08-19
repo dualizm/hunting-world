@@ -2,7 +2,7 @@
 #include "Color.h"
 #include <iomanip>
 
-void Enemy::AttackHero(Person& hero)
+void Enemy::attackHero(Person& hero)
 {
 	std::cout << " The enemy is attacking you!" << std::endl;
 
@@ -21,12 +21,12 @@ void Enemy::AttackHero(Person& hero)
         {
             std::cout << " He used a special attack!" << std::endl;
             std::cout << " He hit you at -" + std::to_string(damage * 2) + " health!" << std::endl;
-            hero.SetHealth(hero.GetHealth() - damage * 2);
+            hero.SetHealth(hero.getHealth() - damage * 2);
         }
         else
         {
             std::cout << " He hit you at -" + std::to_string(damage) + " health!" << std::endl;
-            hero.SetHealth(hero.GetHealth() - damage);
+            hero.SetHealth(hero.getHealth() - damage);
         }
 	}
 
@@ -55,7 +55,7 @@ void Enemy::showStatus()
 
 	std::cout << " | " << " Level: ";
 	SetColor(ConsoleColor::Yellow, ConsoleColor::Black);
-	std::cout << GetLvl();
+    std::cout << getLvl();
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 
 	std::cout << " | " << " Damage: ";
@@ -84,5 +84,5 @@ float Enemy::generateLvl(Person& h, float param)
 {
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
 
-	return static_cast<int>(param) + mersenne() % h.GetLvl();
+    return static_cast<int>(param) + mersenne() % h.getLvl();
 }

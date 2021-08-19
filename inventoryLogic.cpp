@@ -13,11 +13,13 @@ void DisplayInventory(Hero& hero)
 	std::cout << "\n";
 	for (auto& o : hero.inventory)
 	{
-		std::cout << "   " << i << ")" << std::setw(20) << o->GetName();
+        std::cout << " [" << i << "] " <<
+                     std::setw(20) << o->getName();
+
 		if (i % 3 == 0) std::cout << "\n\n";
 		i++;
 	}
-	std::cout << "\n\n";
+    std::cout << std::endl;
 	FSL();
 }
 
@@ -43,9 +45,16 @@ enum class InvCh
 
 void useItemInInventory(Hero& hero, list_item::iterator it,int place)
 {
-	std::advance(it, place);
-	(*it)->Use(hero);
-	hero.inventory.erase(it);
+    if(hero.getHealth() >= hero.getMaxHealth())
+    {
+        Sms("You are already at maximum health!");
+    }
+    else
+    {
+        std::advance(it, place);
+        (*it)->use(hero);
+        hero.inventory.erase(it);
+    }
 }
 
 void InventoryChoice(Hero& hero)
