@@ -24,7 +24,7 @@ int MenuGo(Hero& h)
         std::cout << "\n " << h.GetName() << " state:\n\n" <<
         " Health: " << std::setw(4);
 
-        SetColor(ConsoleColor::Green, ConsoleColor::Black);
+        SetColor(ConsoleColor::LightGreen, ConsoleColor::Black);
         std::cout << h.GetHealth();
         SetColor(ConsoleColor::White, ConsoleColor::Black);
 

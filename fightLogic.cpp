@@ -82,17 +82,25 @@ Enemy* Notification(Hero& hero, std::string loc)
 
     if(loc == location_collection[0])
     {
-        if (chance >= 0 && chance < 40)
+        if (chance >= 0 && chance < 29)
         {
-            return new FSlime(hero);
+            return new Slime(hero);
         }
-        else if (chance >= 40 && chance < 80)
+        else if (chance >= 30 && chance < 59)
         {
             return new Goblin(hero);
         }
-        else if (chance >= 80)
+        else if (chance >= 60 && chance < 79)
+        {
+            return new FSlime(hero);
+        }
+        else if (chance >= 80 && chance < 98)
         {
             return new SlimeBoss(hero);
+        }
+        else if (chance >= 99)
+        {
+            return new RSlimeBoss(hero);
         }
     }
     else if(loc == location_collection[1])
