@@ -111,13 +111,13 @@ Enemy* Notification(Hero& hero, std::string loc)
     {
         if (chance >= 0 && chance < 40)
         {
-            return new Knight(hero);
+            return new Ghost(hero);
         }
         else if (chance >= 40 && chance < 80)
         {
-            return new Knight(hero);
+            return new Skeleton(hero);
         }
-        else if (chance >= 80)
+        else if (chance >= 80 && hero.getDay() > 2)
         {
             return new Knight(hero);
         }

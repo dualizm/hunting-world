@@ -2,6 +2,9 @@
 #include "Enemy.h"
 #include "Logic.h"
 
+// Mysterious_Forest
+    // common enemy
+
 class Slime : public Enemy
 {
 public:
@@ -30,6 +33,33 @@ public:
 
 };
 
+class Goblin : public Enemy
+{
+public:
+    Goblin(Person& h) : Enemy("", 0, 0, 0)
+    {
+        this->name = "Goblin";
+        this->lvl = generateLvl(h, 1);
+
+        this->health = generateStat(25);
+        this->gold = generateStat(50);
+        this->chance = generateStat(100);
+        this->damage = generateStat(8);
+        this->color = ConsoleColor::Green;
+        this->sprite = sprites::Mysterious_Forest::goblin;
+    }
+
+    ConsoleColor getColor() override
+    {
+        return color;
+    }
+
+    float getExp() override
+    {
+        return 0.2f;
+    }
+};
+
 
 class FSlime : public Enemy
 {
@@ -42,7 +72,7 @@ public:
         this->health = generateStat(40);
         this->gold = generateStat(50);
         this->chance = generateStat(80);
-        this->damage = generateStat(5);
+        this->damage = generateStat(4);
         this->color = ConsoleColor::LightRed;
         this->sprite = sprites::Mysterious_Forest::fire_slime;
     }
@@ -58,6 +88,8 @@ public:
 	}
 };
 
+    // boss enemy
+
 class SlimeBoss : public Enemy
 {
 public:
@@ -69,7 +101,7 @@ public:
         this->health = generateStat(100);
         this->gold = generateStat(150);
         this->chance = generateStat(90);
-        this->damage = generateStat(15);
+        this->damage = generateStat(6);
         this->color = ConsoleColor::Magenta;
         this->sprite = sprites::Mysterious_Forest::bigSlime;
 	}
@@ -84,6 +116,8 @@ public:
 		return 0.5f;
 	}
 };
+
+    // uncommon enemy
 
 class RSlimeBoss : public Enemy
 {
@@ -112,32 +146,64 @@ public:
     }
 };
 
-class Goblin : public Enemy
+// Old_Castle
+    // common enemy
+
+class Ghost : public Enemy
 {
 public:
-    Goblin(Person& h) : Enemy("", 0, 0, 0)
-	{
-        this->name = "Goblin";
-        this->lvl = generateLvl(h, 1);
+    Ghost(Person& h) : Enemy("",0, 0, 0)
+    {
+        this->name = "Ghost";
+        this->lvl = generateLvl(h, 6);
 
-        this->health = generateStat(25);
-        this->gold = generateStat(50);
+        this->health = generateStat(150);
+        this->gold = generateStat(200);
         this->chance = generateStat(100);
-        this->damage = generateStat(8);
-        this->color = ConsoleColor::Green;
-        this->sprite = sprites::Mysterious_Forest::goblin;
-	}
+        this->damage = generateStat(5);
+        this->color = ConsoleColor::DarkGray;
+        this->sprite = sprites::Old_Castle::ghost;
+    }
 
     ConsoleColor getColor() override
     {
         return color;
     }
 
-	float getExp() override
-	{
-		return 0.2f;
-	}
+    float getExp() override
+    {
+        return 0.2f;
+    }
 };
+
+class Skeleton : public Enemy
+{
+public:
+    Skeleton(Person& h) : Enemy("",0, 0, 0)
+    {
+        this->name = "Skeleton";
+        this->lvl = generateLvl(h, 7);
+
+        this->health = generateStat(100);
+        this->gold = generateStat(250);
+        this->chance = generateStat(80);
+        this->damage = generateStat(14);
+        this->color = ConsoleColor::White;
+        this->sprite = sprites::Old_Castle::skeleton;
+    }
+
+    ConsoleColor getColor() override
+    {
+        return color;
+    }
+
+    float getExp() override
+    {
+        return 0.5f;
+    }
+};
+
+    // boss enemy
 
 class Knight : public Enemy
 {
@@ -150,7 +216,7 @@ public:
         this->health = generateStat(300);
         this->gold = generateStat(300);
         this->chance = generateStat(78);
-        this->damage = generateStat(10);
+        this->damage = generateStat(7);
         this->color = ConsoleColor::LightGray;
         this->sprite = sprites::Old_Castle::knight;
     }
@@ -165,6 +231,7 @@ public:
         return 0.5f;
     }
 };
+
 
 
 class StoneGolem : public Enemy
