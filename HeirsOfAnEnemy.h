@@ -139,6 +139,33 @@ public:
 	}
 };
 
+class Knight : public Enemy
+{
+public:
+    Knight(Person& h) : Enemy("",0, 0, 0)
+    {
+        this->name = "Knight";
+        this->lvl = generateLvl(h, 10);
+
+        this->health = generateStat(300);
+        this->gold = generateStat(300);
+        this->chance = generateStat(78);
+        this->damage = generateStat(10);
+        this->color = ConsoleColor::LightGray;
+        this->sprite = sprites::Old_Castle::knight;
+    }
+
+    ConsoleColor getColor() override
+    {
+        return color;
+    }
+
+    float getExp() override
+    {
+        return 0.5f;
+    }
+};
+
 class GreatDragon : public Enemy
 {
 public:

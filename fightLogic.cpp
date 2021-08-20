@@ -80,7 +80,7 @@ Enemy* Notification(Hero& hero, std::string loc)
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
 	int chance = 0 + mersenne() % 100;
 
-    if(loc == location_collection[0])
+    if(loc == location_collection[0]) // {"Mysterious forest"}
     {
         if (chance >= 0 && chance < 29)
         {
@@ -107,26 +107,26 @@ Enemy* Notification(Hero& hero, std::string loc)
             return new Goblin(hero);
         }
     }
-    else if(loc == location_collection[1])
+    else if(loc == location_collection[1]) // {"Old castle"}
     {
         if (chance >= 0 && chance < 40)
         {
-            return new FSlime(hero);
+            return new Knight(hero);
         }
         else if (chance >= 40 && chance < 80)
         {
-            return new Goblin(hero);
+            return new Knight(hero);
         }
         else if (chance >= 80)
         {
-            return new SlimeBoss(hero);
+            return new Knight(hero);
         }
     }
-    else if(loc == location_collection[2])
+    else if(loc == location_collection[2]) // {"Sacred mountains"}
     {
 		return new SlimeBoss(hero);
     }
-    else if(loc == location_collection[3])
+    else if(loc == location_collection[3]) // {"Cave of time"}
     {
         return new GreatDragon(hero);
     }
