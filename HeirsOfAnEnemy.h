@@ -166,6 +166,34 @@ public:
     }
 };
 
+
+class StoneGolem : public Enemy
+{
+public:
+    StoneGolem(Person& h) : Enemy("",0, 0, 0)
+    {
+        this->name = "StoneGolem";
+        this->lvl = generateLvl(h, 15);
+
+        this->health = generateStat(1);
+        this->gold = generateStat(300);
+        this->chance = generateStat(78);
+        this->damage = generateStat(10);
+        this->color = ConsoleColor::LightGray;
+        this->sprite = sprites::Sacred_mountains::stone_golem;
+    }
+
+    ConsoleColor getColor() override
+    {
+        return color;
+    }
+
+    float getExp() override
+    {
+        return 1.0f;
+    }
+};
+
 class GreatDragon : public Enemy
 {
 public:

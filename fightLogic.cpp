@@ -124,7 +124,7 @@ Enemy* Notification(Hero& hero, std::string loc)
     }
     else if(loc == location_collection[2]) // {"Sacred mountains"}
     {
-		return new SlimeBoss(hero);
+        return new StoneGolem(hero);
     }
     else if(loc == location_collection[3]) // {"Cave of time"}
     {
