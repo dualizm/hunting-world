@@ -39,5 +39,5 @@ public:
 
     virtual float getExp() = 0;
 
-	virtual ~Enemy() {}
+    virtual ~Enemy() = default;
 };

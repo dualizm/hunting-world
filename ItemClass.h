@@ -18,5 +18,5 @@ public:
 
     virtual std::string info() = 0;
 
-	virtual ~Item() {};
+    virtual ~Item() = default;
 };

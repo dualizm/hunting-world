@@ -34,5 +34,5 @@ public:
 
     virtual std::string getInfo(Hero& hero) = 0;
 
-	virtual ~Weapon() {}
+    virtual ~Weapon() = default;
 };

@@ -21,5 +21,5 @@ public:
     int getLvl() { return static_cast<int>(lvl); }
 	void SetHealth(int health) { this->health = health; }
 
-	virtual ~Person() {}
+    virtual ~Person() = default;
 };
