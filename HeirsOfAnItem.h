@@ -86,7 +86,7 @@ public:
     Cake()
     {
         this->name = "Cake";
-        this->price = 2000;
+        this->price = 1000;
     }
 
 

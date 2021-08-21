@@ -54,6 +54,8 @@ void BattleMode()
 				LackOfGoldT(hero);
 			else
 				Tavern(hero);
+            if(hero.getDay() > 30)
+                BadEnd();
 			break;
         case List::WEAPON: // Weapon shop! REALIZED
 			WeaponShop(hero);

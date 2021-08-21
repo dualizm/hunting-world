@@ -10,6 +10,24 @@ void WinThisGame()
 	exit(0);
 }
 
+void BadEnd()
+{
+    system("cls");
+    FootnoteL();
+    std::string str{" In the cave of time, the great dragon has amassed strength.\n He destroyed everything. This is entirely your fault."};
+    SetColor(ConsoleColor::LightRed, ConsoleColor::Black);
+
+    for(auto& o : str)
+    {
+        std::cout << o;
+        Sleep(250);
+    }
+    Sleep(700);
+    DSTgo();
+
+    exit(0);
+}
+
 void Menu(short& mode)
 {
 	FSL();

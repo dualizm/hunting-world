@@ -7,3 +7,5 @@ void Exit(bool& request);
 void ErrorMessage();
 
 void WinThisGame();
+
+void BadEnd();
