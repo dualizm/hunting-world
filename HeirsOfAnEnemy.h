@@ -232,7 +232,7 @@ public:
     }
 };
 
-
+// Sacred mountains
 
 class StoneGolem : public Enemy
 {
@@ -260,6 +260,8 @@ public:
         return 1.0f;
     }
 };
+
+// Cave of time
 
 class GreatDragon : public Enemy
 {
