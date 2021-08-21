@@ -232,7 +232,8 @@ public:
     }
 };
 
-
+// Sacred mountains
+    // common enemy
 
 class StoneGolem : public Enemy
 {
@@ -260,6 +261,63 @@ public:
         return 1.0f;
     }
 };
+
+class Angel : public Enemy
+{
+public:
+    Angel(Person& h) : Enemy("",0, 0, 0)
+    {
+        this->name = "Angel";
+        this->lvl = generateLvl(h, 15);
+
+        this->health = generateStat(1);
+        this->gold = generateStat(300);
+        this->chance = generateStat(78);
+        this->damage = generateStat(10);
+        this->color = ConsoleColor::Brown;
+        this->sprite = sprites::Sacred_mountains::angel;
+    }
+
+    ConsoleColor getColor() override
+    {
+        return color;
+    }
+
+    float getExp() override
+    {
+        return 1.0f;
+    }
+};
+
+class FireSpiret : public Enemy
+{
+public:
+    FireSpiret(Person& h) : Enemy("",0, 0, 0)
+    {
+        this->name = "FireSpiret";
+        this->lvl = generateLvl(h, 15);
+
+        this->health = generateStat(1);
+        this->gold = generateStat(300);
+        this->chance = generateStat(78);
+        this->damage = generateStat(10);
+        this->color = ConsoleColor::LightRed;
+        this->sprite = sprites::Sacred_mountains::fire_spirit;
+    }
+
+    ConsoleColor getColor() override
+    {
+        return color;
+    }
+
+    float getExp() override
+    {
+        return 1.0f;
+    }
+};
+
+// Cave of time
+    // legendary boss
 
 class GreatDragon : public Enemy
 {
