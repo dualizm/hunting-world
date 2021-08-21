@@ -60,7 +60,7 @@ int MenuGo(Hero& h)
 	" " << List::INVENTORY << ")Inventory\n" <<
 	" " << List::EXIT << ")Exit to the main menu\n\n";
 	FSL();
-	std::cout << "\n > ";
+    std::cout << " > ";
 
     return checkInput();
 }

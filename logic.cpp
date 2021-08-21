@@ -26,7 +26,7 @@ void Menu(short& mode)
 		"\n 1)Battle against monsters\n" <<
 		" 2)Story line\n" <<
 		" 3)Instructions\n" <<
-		" 4)Exit\n\n";
+        " 4)Exit\n\n";
 
 	FSL(); 
 	std::cout << "\n > ";
