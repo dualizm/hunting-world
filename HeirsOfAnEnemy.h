@@ -289,12 +289,12 @@ public:
     }
 };
 
-class FireSpiret : public Enemy
+class FireSpirit : public Enemy
 {
 public:
-    FireSpiret(Person& h) : Enemy("",0, 0, 0)
+    FireSpirit(Person& h) : Enemy("",0, 0, 0)
     {
-        this->name = "FireSpiret";
+        this->name = "FireSpirit";
         this->lvl = generateLvl(h, 15);
 
         this->health = generateStat(1);

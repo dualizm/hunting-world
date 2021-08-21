@@ -124,7 +124,18 @@ Enemy* Notification(Hero& hero, std::string loc)
     }
     else if(loc == location_collection[2]) // {"Sacred mountains"}
     {
-        return new StoneGolem(hero);
+        if (chance >= 0 && chance < 40)
+        {
+            return new StoneGolem(hero);
+        }
+        else if (chance >= 40 && chance < 80)
+        {
+            return new Angel(hero);
+        }
+        else if (chance >= 80 && hero.getDay() > 2)
+        {
+            return new FireSpirit(hero);
+        }
     }
     else if(loc == location_collection[3]) // {"Cave of time"}
     {
