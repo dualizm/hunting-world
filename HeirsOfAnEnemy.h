@@ -18,7 +18,7 @@ public:
         this->chance = generateStat(90);
         this->damage = generateStat(3);
         this->color = ConsoleColor::LightGreen;
-        this->sprite = sprites::Sacred_mountains::angel;
+        this->sprite = sprites::Mysterious_Forest::slime;
     }
 
     ConsoleColor getColor() override
