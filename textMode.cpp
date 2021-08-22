@@ -45,7 +45,7 @@ void StoryLine()
     system("cls");
     FootnoteL();
     std::string str{" In the era of war between humans and monsters, the great dragon was summoned\n to destroy the world.\n"
-                    " But after being drafted, he was weakened. Brave heroes who went to him were\n destroyed by monsters.\n"
+                    " But after being drafted, he was weakened. Brave heroes who challenged him were\n destroyed by monsters.\n"
                     " Who knows, maybe you can do it ..\n"};
     FSL();
     for(auto& o : str)
