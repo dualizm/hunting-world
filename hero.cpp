@@ -25,7 +25,7 @@ int Hero::getDay()
 
 int Hero::getMaxHealth()
 {
-    return (100 - 50) + (50 * getLvl());
+    return (100 - 50) + ( 50 * getLvl());
 }
 
 void Hero::addGold(int newGold)
@@ -119,7 +119,7 @@ void Hero::attackEnemy(Hero& hero, Enemy* enemy, int damageIn)
 
 	if (chc > weapon->getChance())
 	{
-		std::cout << " You missed! =(" << std::endl;
+        std::cout << " You missed! :(" << std::endl;
 	}
 	else
 	{
@@ -139,14 +139,14 @@ void Hero::debugcheatMode(int& health, int& gold, float& lvl, int& day)
 		return;
 	else if (chek == 1)
 	{
-		std::cout << "Enter health: ";
-		std::cin >> health;
-		std::cout << "Enter gold: ";
-		std::cin >> gold;
-		std::cout << "Enter lvl: ";
-		std::cin >> lvl;
-		std::cout << "Enter day: ";
-		std::cin >> day;
+        std::cout << "Enter health: ";
+        std::cin >> health;
+        std::cout << "Enter gold: ";
+        std::cin >> gold;
+        std::cout << "Enter lvl: ";
+        std::cin >> lvl;
+        std::cout << "Enter day: ";
+        std::cin >> day;
 	}
 	else if (chek == 2)
 	{

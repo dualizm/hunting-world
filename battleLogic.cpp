@@ -152,9 +152,11 @@ void LackOfGoldT(Hero& hero)
 enum class WeaponList
 {
     weaponSWORD = 1,
-    weaponGUN = 2,
-    weaponBIGSSWORD = 3,
-    weaponCROSSBOW = 4,
+    weaponGUN,
+    weaponBIGSSWORD,
+    weaponCROSSBOW,
+    weaponSNAKEBLADE,
+    weaponDRAGONSLAYER,
     weaponEXIT = 0
 };
 
@@ -169,7 +171,7 @@ void WeaponShop(Hero& hero) // WEAPON SELECTOR STORE
 		system("cls");
         WeaponChoice(getchoice);
 
-		switch (getchoice)
+        switch (getchoice)
 		{
         case static_cast<int>(WeaponList::weaponSWORD):
             choiceWeapon(hero, std::make_shared<Sword>());
@@ -178,11 +180,17 @@ void WeaponShop(Hero& hero) // WEAPON SELECTOR STORE
             choiceWeapon(hero,  std::make_shared<Gun>());
 			break;
         case static_cast<int>(WeaponList::weaponBIGSSWORD):
-            choiceWeapon(hero,  std::make_shared<Cursedbow>());
+            choiceWeapon(hero,  std::make_shared<StaffHealth>());
 			break;
         case static_cast<int>(WeaponList::weaponCROSSBOW):
-            choiceWeapon(hero,  std::make_shared<Crossbow>());
+            choiceWeapon(hero,  std::make_shared<Cursedbow>());
 			break;
+        case static_cast<int>(WeaponList::weaponSNAKEBLADE):
+            choiceWeapon(hero,  std::make_shared<SnakeBlade>());
+            break;
+        case static_cast<int>(WeaponList::weaponDRAGONSLAYER):
+            choiceWeapon(hero,  std::make_shared<DragonSlayer>());
+            break;
         case static_cast<int>(WeaponList::weaponEXIT):
 			weaponShop = false;
 			break;

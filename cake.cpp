@@ -20,5 +20,5 @@ int Cake::getPrice()
 
 std::string Cake::info()
 {
-    return " multiplies hp";
+    return " *2 hp";
 }

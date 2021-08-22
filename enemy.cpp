@@ -11,13 +11,13 @@ void Enemy::attackHero(Person& hero)
 
 	if (chc > chance)
 	{
-		std::cout << " He missed!" << std::endl;
+        std::cout << " He missed! :)" << std::endl;
 	}
 	else
 	{
         std::mt19937 randAttack(static_cast<unsigned int>(time(0)));
         int spEnemy = 0 + randAttack() % 100;
-        if(spEnemy > 80)
+        if(spEnemy > 90)
         {
             std::cout << " He used a special attack!" << std::endl;
             std::cout << " He hit you at -" + std::to_string(damage * 2) + " health!" << std::endl;
@@ -77,7 +77,7 @@ int Enemy::generateStat(int param)
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
 	return static_cast<int>(
 		param + mersenne() %
-        static_cast<int>((param + (param / 100) * (lvl * 20))));
+        static_cast<int>((param + (param / 100) * (lvl * 60))));
 }
 
 float Enemy::generateLvl(Person& h, float param)

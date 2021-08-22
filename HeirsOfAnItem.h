@@ -12,7 +12,7 @@ public:
 	{
 		this->name = "Potion of Healing";
         this->price = 300;
-		this->health = 50;
+        this->health = 60;
 	}
 
     void use(Hero& hero) override;
@@ -38,7 +38,7 @@ public:
 	{
 		this->name = "Medicative herb";
 		this->price = 125;
-        this->health = 30;
+        this->health = 40;
 	}
 
 
@@ -65,7 +65,7 @@ public:
     {
         this->name = "HealthScroll";
         this->price = 650;
-        this->health = 100;
+        this->health = 125;
     }
 
 

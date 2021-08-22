@@ -66,22 +66,22 @@ void WeaponChoice(short& gch)
 	std::cout << " Welcome to \"Iron Fist\" Store!";
 	std::cout << " What do you want to buy?\n";
 
-    std::vector<Weapon*> cWp{ new Sword(), new Gun(), new Cursedbow(), new Crossbow() };
+    std::vector<Weapon*> cWp{ new Sword(), new Gun(), new StaffHealth(), new Cursedbow(), new SnakeBlade(), new DragonSlayer() };
 
 	FSL();
 	int i = 1;
 	for (auto& o : cWp)
 	{
-        std::cout << " " << i << ") " << std::setw(10) << o->getName() << " (" << std::setw(4);
+        std::cout << " " << i << ") " << std::setw(12) << o->getName() << " (" << std::setw(4);
 
 		SetColor(ConsoleColor::Yellow, ConsoleColor::Black);
         std::cout << o->getPrice();
 		SetColor(ConsoleColor::White, ConsoleColor::Black);
 
-		std::cout << " G)\t"
+        std::cout << " G) "
 			<< "State: Damage = ";
 		SetColor(ConsoleColor::LightRed, ConsoleColor::Black);
-        std::cout << o->getDamage();
+        std::cout << std::setw(3) << o->getDamage();
 		SetColor(ConsoleColor::White, ConsoleColor::Black);
 
 		std::cout << "; Chance = ";
@@ -89,7 +89,12 @@ void WeaponChoice(short& gch)
         std::cout << o->getChance();
 		SetColor(ConsoleColor::White, ConsoleColor::Black);
 
-		std::cout << ";" << std::endl;
+        std::cout << "; SP =";
+        SetColor(ConsoleColor::LightGreen, ConsoleColor::Black);
+        std::cout << o->shopInfo();
+        SetColor(ConsoleColor::White, ConsoleColor::Black);
+
+        std::cout << ";" << std::endl;
 		i++;
 	}
 	FSL();

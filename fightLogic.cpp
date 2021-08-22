@@ -49,15 +49,28 @@ void SignalAttackReset()
     DSTgo();
 }
 
+void NoEscape()
+{
+    ShowBattlelogText();
+
+    SetColor(ConsoleColor::Magenta, ConsoleColor::Black);
+    Sleep(150);
+    std::cout << " A magic barrier blocks your escape route,\n there is no way out!\n";
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
+    FSL();
+    Sleep(150);
+    DSTgo();
+}
+
 void TryEscape(Hero& hero, Enemy* p_enemy, bool& status)
 {
     ShowBattlelogText();
 
     Sleep(150);
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
-	int ch = 1 + mersenne() % 100;
+    int ch = 0 + mersenne() % 100;
 
-	if (ch >= 95)
+    if (ch >= 80)
 	{
         std::cout << " Successful escape!\n";
         DSTgo();
@@ -70,6 +83,9 @@ void TryEscape(Hero& hero, Enemy* p_enemy, bool& status)
 		DSTgo();
 		status = true;
 	}
+
+    hero.resetSp = 0;
+
 }
 
 Enemy* Notification(Hero& hero, std::string loc)
@@ -90,15 +106,15 @@ Enemy* Notification(Hero& hero, std::string loc)
         {
             return new Goblin(hero);
         }
-        else if (chance >= 60 && chance < 79)
+        else if (chance >= 60 && chance < 79 && hero.getDay() > 1)
         {
             return new FSlime(hero);
         }
-        else if (chance >= 80 && chance < 98 && hero.getDay() > 1)
+        else if (chance >= 80 && chance < 97 && hero.getDay() > 2)
         {
             return new SlimeBoss(hero);
         }
-        else if (chance >= 99 && hero.getDay() > 1)
+        else if (chance >= 98 && hero.getDay())
         {
             return new RSlimeBoss(hero);
         }
@@ -117,7 +133,7 @@ Enemy* Notification(Hero& hero, std::string loc)
         {
             return new Skeleton(hero);
         }
-        else if (chance >= 80 && hero.getDay() > 2)
+        else if (chance >= 80)
         {
             return new Knight(hero);
         }
@@ -136,7 +152,7 @@ Enemy* Notification(Hero& hero, std::string loc)
         {
             return new Angel(hero);
         }
-        else if (chance >= 80 && hero.getDay() > 3)
+        else if (chance >= 80)
         {
             return new FireSpirit(hero);
         }
@@ -202,11 +218,9 @@ bool WinFight(Hero& hero, Enemy* p_enemy)
 
 void LoseFight()
 {
-	Sms("You died in battle!");
-
     SetColor(ConsoleColor::LightRed, ConsoleColor::Black);
+	Sms("You died in battle!");
     Sms(" [=GAME-OVER=] ");
-    SetColor(ConsoleColor::White, ConsoleColor::Black);
 
 	DSTgo();
 
@@ -249,7 +263,14 @@ void Fight(Hero& hero, std::string loc)
 				Inventory(hero);
 				break;
             case static_cast<int>(FightList::fightRUN):
-				TryEscape(hero, p_enemy, fight);
+                if(loc == location_collection[3])
+                {
+                    NoEscape();
+                }
+                else
+                {
+                    TryEscape(hero, p_enemy, fight);
+                }
 				break;
 			default:
 				ErrorMessage();

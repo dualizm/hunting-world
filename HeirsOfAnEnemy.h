@@ -14,7 +14,7 @@ public:
         this->lvl = generateLvl(h, 1);
 
         this->health = generateStat(30);
-        this->gold = generateStat(40);
+        this->gold = 50;
         this->chance = generateStat(90);
         this->damage = generateStat(3);
         this->color = ConsoleColor::LightGreen;
@@ -42,7 +42,7 @@ public:
         this->lvl = generateLvl(h, 1);
 
         this->health = generateStat(25);
-        this->gold = generateStat(65);
+        this->gold = 80;
         this->chance = generateStat(100);
         this->damage = generateStat(5);
         this->color = ConsoleColor::Green;
@@ -69,8 +69,8 @@ public:
         this->name = "Fire slime";
         this->lvl = generateLvl(h, 2);
 
-        this->health = generateStat(35);
-        this->gold = generateStat(100);
+        this->health = generateStat(50);
+        this->gold = 200;
         this->chance = generateStat(80);
         this->damage = generateStat(7);
         this->color = ConsoleColor::LightRed;
@@ -99,7 +99,7 @@ public:
         this->lvl = generateLvl(h, 5);
 
         this->health = generateStat(100);
-        this->gold = generateStat(150);
+        this->gold = 400;
         this->chance = generateStat(90);
         this->damage = generateStat(6);
         this->color = ConsoleColor::Magenta;
@@ -128,7 +128,7 @@ public:
         this->lvl = generateLvl(h, 5);
 
         this->health = generateStat(500);
-        this->gold = generateStat(150);
+        this->gold = 500;
         this->chance = generateStat(100);
         this->damage = generateStat(1);
         this->color = ConsoleColor::Cyan;
@@ -158,7 +158,7 @@ public:
         this->lvl = generateLvl(h, 6);
 
         this->health = generateStat(150);
-        this->gold = generateStat(200);
+        this->gold = 500;
         this->chance = generateStat(100);
         this->damage = generateStat(5);
         this->color = ConsoleColor::DarkGray;
@@ -185,7 +185,7 @@ public:
         this->lvl = generateLvl(h, 7);
 
         this->health = generateStat(100);
-        this->gold = generateStat(250);
+        this->gold = 670;
         this->chance = generateStat(80);
         this->damage = generateStat(14);
         this->color = ConsoleColor::White;
@@ -214,7 +214,7 @@ public:
         this->lvl = generateLvl(h, 10);
 
         this->health = generateStat(300);
-        this->gold = generateStat(300);
+        this->gold = 1287;
         this->chance = generateStat(78);
         this->damage = generateStat(7);
         this->color = ConsoleColor::LightGray;
@@ -243,8 +243,8 @@ public:
         this->name = "StoneGolem";
         this->lvl = generateLvl(h, 15);
 
-        this->health = generateStat(1);
-        this->gold = generateStat(300);
+        this->health = generateStat(400);
+        this->gold = 1500;
         this->chance = generateStat(78);
         this->damage = generateStat(10);
         this->color = ConsoleColor::LightGray;
@@ -270,10 +270,10 @@ public:
         this->name = "Angel";
         this->lvl = generateLvl(h, 15);
 
-        this->health = generateStat(1);
-        this->gold = generateStat(300);
-        this->chance = generateStat(78);
-        this->damage = generateStat(10);
+        this->health = generateStat(450);
+        this->gold = 1600;
+        this->chance = generateStat(88);
+        this->damage = generateStat(8);
         this->color = ConsoleColor::Brown;
         this->sprite = sprites::Sacred_mountains::angel;
     }
@@ -289,6 +289,8 @@ public:
     }
 };
 
+    // boss enemy
+
 class FireSpirit : public Enemy
 {
 public:
@@ -297,10 +299,10 @@ public:
         this->name = "FireSpirit";
         this->lvl = generateLvl(h, 15);
 
-        this->health = generateStat(1);
-        this->gold = generateStat(300);
+        this->health = generateStat(500);
+        this->gold = 3000;
         this->chance = generateStat(78);
-        this->damage = generateStat(10);
+        this->damage = generateStat(15);
         this->color = ConsoleColor::LightRed;
         this->sprite = sprites::Sacred_mountains::fire_spirit;
     }
@@ -327,7 +329,7 @@ public:
         this->name = "GreatDragon";
         this->lvl = generateLvl(h, 100);
 
-        this->health = generateStat(500);
+        this->health = generateStat(700);
         this->gold = 0;
         this->chance = generateStat(80);
         this->damage = generateStat(20);

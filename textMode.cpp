@@ -24,20 +24,14 @@ void Screensaver()
     };
 
     FootnoteL();
-    std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
-
     for(auto& o : screensaver)
     {
-        int chance = 1 + mersenne() % 15;
-        SetColor(chance, ConsoleColor::Black);
         std::cout << o << std::endl;
         Sleep(100);
     }
 	Sleep(2000);
 
-    SetColor(ConsoleColor::White, ConsoleColor::Black);
     DSTgo();
-
 }
 
 void StoryLine()

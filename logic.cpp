@@ -4,8 +4,8 @@
 
 void WinThisGame()
 {
-    Sms("You kill the great dragon");
-    std::cout << " Bye ;3";
+    Sms("!!!!!!!!  You kill the great dragon  !!!!!!!!");
+    FSL();
     DSTgo();
 	exit(0);
 }
