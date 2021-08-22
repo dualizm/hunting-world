@@ -42,9 +42,9 @@ public:
         this->lvl = generateLvl(h, 1);
 
         this->health = generateStat(25);
-        this->gold = generateStat(50);
+        this->gold = generateStat(65);
         this->chance = generateStat(100);
-        this->damage = generateStat(8);
+        this->damage = generateStat(5);
         this->color = ConsoleColor::Green;
         this->sprite = sprites::Mysterious_Forest::goblin;
     }
@@ -69,10 +69,10 @@ public:
         this->name = "Fire slime";
         this->lvl = generateLvl(h, 2);
 
-        this->health = generateStat(40);
-        this->gold = generateStat(50);
+        this->health = generateStat(35);
+        this->gold = generateStat(100);
         this->chance = generateStat(80);
-        this->damage = generateStat(4);
+        this->damage = generateStat(7);
         this->color = ConsoleColor::LightRed;
         this->sprite = sprites::Mysterious_Forest::fire_slime;
     }
@@ -325,12 +325,12 @@ public:
     GreatDragon(Person& h) : Enemy("", 0, 0, 0)
     {
         this->name = "GreatDragon";
-        this->lvl = generateLvl(h, 45);
+        this->lvl = generateLvl(h, 100);
 
-        this->health = 1000;
-        this->gold = generateStat(5000);
-        this->chance = 80;
-        this->damage = 20;
+        this->health = generateStat(500);
+        this->gold = 0;
+        this->chance = generateStat(80);
+        this->damage = generateStat(20);
         this->color = ConsoleColor::Yellow;
         this->sprite = sprites::Cave_of_time::great_dragon;
     }

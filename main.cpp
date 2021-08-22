@@ -15,7 +15,7 @@
 int main()
 {
 	HWND consoleWindow = GetConsoleWindow(); SetWindowLong(consoleWindow, GWL_STYLE, GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
-	system("mode con cols=80 lines=25");
+    system("mode con cols=80 lines=26");
     Screensaver(); // Displays the game splash screen
 
 	bool work{true};
