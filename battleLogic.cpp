@@ -61,7 +61,7 @@ int MenuGo(Hero& h)
 	" " << List::INVENTORY << ")Inventory\n" <<
 	" " << List::EXIT << ")Exit to the main menu\n\n";
 	FSL();
-    std::cout << " > ";
+    std::cout << "\n Enter the number to select:\n > ";
 
     return checkInput();
 }

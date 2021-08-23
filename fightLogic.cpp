@@ -85,7 +85,7 @@ void TryEscape(Hero& hero, Enemy* p_enemy, bool& status)
 		status = true;
 	}
 
-    hero.resetSp = 0;
+    hero.resetSp = 2;
 
 }
 
@@ -233,7 +233,7 @@ void LoseFight(StateMachine* sm)
         std::cout << std::endl;
     }
 
-	DSTgo();
+    Sleep(2000);
     SetColor(ConsoleColor::White, ConsoleColor::Black);
 
     sm->backMain();
@@ -255,6 +255,7 @@ void Fight(Hero& hero, std::string loc, StateMachine* sm)
     bool confrontation = true;
 	short getchoice;
     sm->add(confrontation);
+    hero.resetSp = 2;
 
     while (confrontation)
 	{

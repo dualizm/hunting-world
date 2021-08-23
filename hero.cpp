@@ -25,7 +25,7 @@ int Hero::getDay()
 
 int Hero::getMaxHealth()
 {
-    return (100 - 50) + ( 50 * getLvl());
+    return (100 - 30) + ( 30 * getLvl());
 }
 
 void Hero::addGold(int newGold)

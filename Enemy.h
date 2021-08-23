@@ -18,7 +18,7 @@ protected:
     ConsoleColor color;
     std::vector<std::string> sprite;
 
-    int generateStat(int param);
+    int generateStat(Hero& h, int param);
 
     float generateLvl(Person& h, float param);
 

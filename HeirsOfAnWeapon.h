@@ -124,12 +124,12 @@ public:
 
     void resultSpecialAttack(Person& hero) override
     {
-        hero.SetHealth(hero.getHealth() + (50 + hero.getLvl()));
+        hero.SetHealth(hero.getHealth() + (30 + hero.getLvl()));
     }
 
     std::string getInfo(Hero& hero) override
     {
-        return "+" + std::to_string(50 + hero.getLvl()) + " your health";
+        return "+" + std::to_string(30 + hero.getLvl()) + " your health";
     }
 
     std::string shopInfo() override

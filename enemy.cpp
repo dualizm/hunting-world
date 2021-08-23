@@ -72,12 +72,12 @@ void Enemy::showStatus()
 
 }
 
-int Enemy::generateStat(int param)
+int Enemy::generateStat(Hero& h, int param)
 {
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
-	return static_cast<int>(
+    return static_cast<int>(
 		param + mersenne() %
-        static_cast<int>((param + (param / 100) * (lvl * 60))));
+        static_cast<int>((param + (param / 100) * (((lvl + 100) * (20 * h.getLvl()) / 2) ) ))) ;
 }
 
 float Enemy::generateLvl(Person& h, float param)

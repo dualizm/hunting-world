@@ -20,8 +20,6 @@ void DisplayInventory(Hero& hero)
 	for (auto& o : hero.inventory)
 	{
         std::cout << " [" << i << "] |" << o->getName() << "\n\n";
-
-        //if (i % 3 == 0) std::cout << "\n\n";
         i++;
 	}
     std::cout << std::endl;

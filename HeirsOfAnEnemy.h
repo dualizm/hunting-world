@@ -8,15 +8,15 @@
 class Slime : public Enemy
 {
 public:
-    Slime(Person& h) : Enemy("", 0, 0, 0)
+    Slime(Hero& h) : Enemy("", 0, 0, 0)
     {
         this->name = "Slime";
         this->lvl = generateLvl(h, 1);
 
-        this->health = generateStat(30);
+        this->health = generateStat(h, 30);
         this->gold = 50;
-        this->chance = generateStat(90);
-        this->damage = generateStat(3);
+        this->chance = generateStat(h, 90);
+        this->damage = generateStat(h, 3);
         this->color = ConsoleColor::LightGreen;
         this->sprite = sprites::Mysterious_Forest::slime;
     }
@@ -36,15 +36,15 @@ public:
 class Goblin : public Enemy
 {
 public:
-    Goblin(Person& h) : Enemy("", 0, 0, 0)
+    Goblin(Hero& h) : Enemy("", 0, 0, 0)
     {
         this->name = "Goblin";
         this->lvl = generateLvl(h, 1);
 
-        this->health = generateStat(25);
+        this->health = generateStat(h, 25);
         this->gold = 80;
-        this->chance = generateStat(100);
-        this->damage = generateStat(5);
+        this->chance = generateStat(h, 100);
+        this->damage = generateStat(h, 5);
         this->color = ConsoleColor::Green;
         this->sprite = sprites::Mysterious_Forest::goblin;
     }
@@ -64,15 +64,15 @@ public:
 class FSlime : public Enemy
 {
 public:
-    FSlime(Person& h) : Enemy("", 0, 0, 0)
+    FSlime(Hero& h) : Enemy("", 0, 0, 0)
     {
         this->name = "Fire slime";
         this->lvl = generateLvl(h, 2);
 
-        this->health = generateStat(50);
+        this->health = generateStat(h, 50);
         this->gold = 200;
-        this->chance = generateStat(80);
-        this->damage = generateStat(7);
+        this->chance = generateStat(h, 80);
+        this->damage = generateStat(h, 7);
         this->color = ConsoleColor::LightRed;
         this->sprite = sprites::Mysterious_Forest::fire_slime;
     }
@@ -93,15 +93,15 @@ public:
 class SlimeBoss : public Enemy
 {
 public:
-    SlimeBoss(Person& h)  : Enemy("", 0, 0, 0)
+    SlimeBoss(Hero& h)  : Enemy("", 0, 0, 0)
 	{
         this->name = "Big slime";
         this->lvl = generateLvl(h, 5);
 
-        this->health = generateStat(100);
+        this->health = generateStat(h, 100);
         this->gold = 400;
-        this->chance = generateStat(90);
-        this->damage = generateStat(6);
+        this->chance = generateStat(h, 90);
+        this->damage = generateStat(h, 6);
         this->color = ConsoleColor::Magenta;
         this->sprite = sprites::Mysterious_Forest::bigSlime;
 	}
@@ -122,15 +122,15 @@ public:
 class RSlimeBoss : public Enemy
 {
 public:
-    RSlimeBoss(Person& h)  : Enemy("", 0, 0, 0)
+    RSlimeBoss(Hero& h)  : Enemy("", 0, 0, 0)
     {
         this->name = "Big slime";
         this->lvl = generateLvl(h, 5);
 
-        this->health = generateStat(500);
+        this->health = generateStat(h, 400);
         this->gold = 500;
-        this->chance = generateStat(100);
-        this->damage = generateStat(1);
+        this->chance = generateStat(h, 100);
+        this->damage = 1;
         this->color = ConsoleColor::Cyan;
         this->sprite = sprites::Mysterious_Forest::rare_bigSlime;
     }
@@ -152,15 +152,15 @@ public:
 class Ghost : public Enemy
 {
 public:
-    Ghost(Person& h) : Enemy("",0, 0, 0)
+    Ghost(Hero& h) : Enemy("",0, 0, 0)
     {
         this->name = "Ghost";
         this->lvl = generateLvl(h, 6);
 
-        this->health = generateStat(150);
+        this->health = generateStat(h, 150);
         this->gold = 500;
-        this->chance = generateStat(100);
-        this->damage = generateStat(8);
+        this->chance = generateStat(h, 100);
+        this->damage = generateStat(h, 8);
         this->color = ConsoleColor::DarkGray;
         this->sprite = sprites::Old_Castle::ghost;
     }
@@ -179,15 +179,15 @@ public:
 class Skeleton : public Enemy
 {
 public:
-    Skeleton(Person& h) : Enemy("",0, 0, 0)
+    Skeleton(Hero& h) : Enemy("",0, 0, 0)
     {
         this->name = "Skeleton";
         this->lvl = generateLvl(h, 7);
 
-        this->health = generateStat(100);
+        this->health = generateStat(h, 100);
         this->gold = 670;
-        this->chance = generateStat(80);
-        this->damage = generateStat(10);
+        this->chance = generateStat(h, 80);
+        this->damage = generateStat(h, 10);
         this->color = ConsoleColor::White;
         this->sprite = sprites::Old_Castle::skeleton;
     }
@@ -208,15 +208,15 @@ public:
 class Knight : public Enemy
 {
 public:
-    Knight(Person& h) : Enemy("",0, 0, 0)
+    Knight(Hero& h) : Enemy("",0, 0, 0)
     {
         this->name = "Knight";
-        this->lvl = generateLvl(h, 10);
+        this->lvl = generateLvl(h, 15);
 
-        this->health = generateStat(300);
+        this->health = generateStat(h, 150);
         this->gold = 1287;
-        this->chance = generateStat(78);
-        this->damage = generateStat(14);
+        this->chance = generateStat(h, 78);
+        this->damage = generateStat(h, 14);
         this->color = ConsoleColor::LightGray;
         this->sprite = sprites::Old_Castle::knight;
     }
@@ -238,15 +238,15 @@ public:
 class StoneGolem : public Enemy
 {
 public:
-    StoneGolem(Person& h) : Enemy("",0, 0, 0)
+    StoneGolem(Hero& h) : Enemy("",0, 0, 0)
     {
         this->name = "StoneGolem";
-        this->lvl = generateLvl(h, 15);
+        this->lvl = generateLvl(h, 20);
 
-        this->health = generateStat(400);
+        this->health = generateStat(h, 400);
         this->gold = 1500;
-        this->chance = generateStat(78);
-        this->damage = generateStat(17);
+        this->chance = generateStat(h, 78);
+        this->damage = generateStat(h, 17);
         this->color = ConsoleColor::LightGray;
         this->sprite = sprites::Sacred_mountains::stone_golem;
     }
@@ -265,15 +265,15 @@ public:
 class Angel : public Enemy
 {
 public:
-    Angel(Person& h) : Enemy("",0, 0, 0)
+    Angel(Hero& h) : Enemy("",0, 0, 0)
     {
         this->name = "Angel";
-        this->lvl = generateLvl(h, 15);
+        this->lvl = generateLvl(h, 25);
 
-        this->health = generateStat(450);
+        this->health = generateStat(h, 450);
         this->gold = 1600;
-        this->chance = generateStat(88);
-        this->damage = generateStat(15);
+        this->chance = generateStat(h, 88);
+        this->damage = generateStat(h, 13);
         this->color = ConsoleColor::Brown;
         this->sprite = sprites::Sacred_mountains::angel;
     }
@@ -294,15 +294,15 @@ public:
 class FireSpirit : public Enemy
 {
 public:
-    FireSpirit(Person& h) : Enemy("",0, 0, 0)
+    FireSpirit(Hero& h) : Enemy("",0, 0, 0)
     {
         this->name = "FireSpirit";
-        this->lvl = generateLvl(h, 15);
+        this->lvl = generateLvl(h, 30);
 
-        this->health = generateStat(500);
+        this->health = generateStat(h, 300);
         this->gold = 3000;
-        this->chance = generateStat(78);
-        this->damage = generateStat(20);
+        this->chance = generateStat(h, 78);
+        this->damage = generateStat(h, 15);
         this->color = ConsoleColor::LightRed;
         this->sprite = sprites::Sacred_mountains::fire_spirit;
     }
@@ -324,15 +324,15 @@ public:
 class GreatDragon : public Enemy
 {
 public:
-    GreatDragon(Person& h) : Enemy("", 0, 0, 0)
+    GreatDragon(Hero& h) : Enemy("", 0, 0, 0)
     {
         this->name = "GreatDragon";
         this->lvl = generateLvl(h, 100);
 
-        this->health = generateStat(1);
+        this->health = generateStat(h, 600);
         this->gold = 0;
-        this->chance = generateStat(80);
-        this->damage = generateStat(25);
+        this->chance = generateStat(h, 80);
+        this->damage = generateStat(h, 20);
         this->color = ConsoleColor::Yellow;
         this->sprite = sprites::Cave_of_time::great_dragon;
     }

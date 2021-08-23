@@ -28,7 +28,7 @@ void WinThisGame()
     Sleep(1500);
     std::cout << "\t\t" << "Programmer: Notidman;\n" << std::endl;
     Sleep(1500);
-    std::cout << "\t\t" << "ASCII artists: Notidman, HollowKaeden, jbs;\n" << std::endl;
+    std::cout << "\t\t" << "ASCII artists: Notidman, HollowKaeden, jbs, Ooyamaneko;\n" << std::endl;
     Sleep(1500);
     FSL();
     Sleep(1500);
@@ -76,7 +76,7 @@ void Menu(short& mode)
         " 4)Exit\n\n";
 
 	FSL(); 
-	std::cout << "\n > ";
+    std::cout << "\n Enter the number to select:\n > ";
 
     mode = checkInput();
 }
