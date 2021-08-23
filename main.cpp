@@ -18,7 +18,7 @@ int main()
     system("mode con cols=80 lines=26");
     Screensaver(); // Displays the game splash screen
 
-    StateMachine* sm = new StateMachine();
+    auto sm = new StateMachine();
 
     bool work{true};
     sm->add(work);

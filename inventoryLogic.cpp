@@ -1,23 +1,28 @@
 #include "SupportFunctions.h"
 #include "ModulePerson.h"
 #include "Logic.h"
+#include "Color.h"
 #include "ItemClass.h"
 #include <iomanip>
 
 void DisplayInventory(Hero& hero)
 {
-	Footnote();
-	FSL();
+    FSL();
+    std::cout << "\n\n";
+    SetColor(ConsoleColor::Black, ConsoleColor::Red);
+    std::cout << " " << "Inventory: " << std::endl;
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
+    std::cout << "\n\n";
+    FSL();
 
-	int i = 1;
+    int i = 1;
 	std::cout << "\n";
 	for (auto& o : hero.inventory)
 	{
-        std::cout << " [" << i << "] " <<
-                     std::setw(20) << o->getName();
+        std::cout << " [" << i << "] |" << o->getName() << "\n\n";
 
-		if (i % 3 == 0) std::cout << "\n\n";
-		i++;
+        //if (i % 3 == 0) std::cout << "\n\n";
+        i++;
 	}
     std::cout << std::endl;
 	FSL();

@@ -1,11 +1,40 @@
 #include "SupportFunctions.h"
 #include "Color.h"
 #include "Sms.h"
+#include <string>
 
 void WinThisGame()
 {
-    Sms("!!!!!!!!  You kill the great dragon  !!!!!!!!");
+    system("cls");
     FSL();
+    Sleep(1500);
+    std::cout << "\n\t\t" << "Hunting world\n" << std::endl;
+    Sleep(1500);
+
+    std::string finalStory{"\n\t\tFinally, the brave hero defeated the great evil!\n"
+                           "\t\tThe remaining monsters fled in fear of the hero.\n"
+                           "\t\tA quiet life has come, but who knows,\n"
+                           "\t\tevil always finds its way!\n\n"};
+    Sleep(1500);
+    FSL();
+    for(auto& ch : finalStory)
+    {
+        std::cout << ch;
+        Sleep(150);
+    }
+    FSL();
+    Sleep(1500);
+    std::cout << "\n\t\t" << "Authors:\n" << std::endl;
+    Sleep(1500);
+    std::cout << "\t\t" << "Programmer: Notidman;\n" << std::endl;
+    Sleep(1500);
+    std::cout << "\t\t" << "ASCII artists: Notidman, HollowKaeden, jbs;\n" << std::endl;
+    Sleep(1500);
+    FSL();
+    Sleep(1500);
+    std::cout << "\n\t\t" << "Thanks for playing, we hope you enjoyed it!\n" << std::endl;
+    FSL();
+    Sleep(1500);
     DSTgo();
 	exit(0);
 }

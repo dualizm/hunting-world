@@ -329,7 +329,7 @@ public:
         this->name = "GreatDragon";
         this->lvl = generateLvl(h, 100);
 
-        this->health = generateStat(700);
+        this->health = generateStat(1);
         this->gold = 0;
         this->chance = generateStat(80);
         this->damage = generateStat(25);
