@@ -14,6 +14,7 @@
 #include "Listgui.h"
 #include "Color.h"
 #include "LocationLogic.h"
+#include "StateMachine.h"
 
 void Inventory(Hero& hero);
 
@@ -66,7 +67,7 @@ int MenuGo(Hero& h)
 }
 
 
-void FindLocation(Hero& hero)
+void FindLocation(Hero& hero, StateMachine* sm)
 {
 	enum LocList
 	{
@@ -78,6 +79,7 @@ void FindLocation(Hero& hero)
 	};
 
 	bool fight{ true };
+    sm->add(fight);
 	short getchoice;
 
 	while (fight)
@@ -88,18 +90,18 @@ void FindLocation(Hero& hero)
 		switch (getchoice)
 		{
 		case LocList::locMISTERYFOREST:
-            GoOnLoc(hero, location_collection[0]);
+            GoOnLoc(hero, location_collection[0], sm);
 			break;
 		case LocList::locOLDCASTLE:
-            GoOnLoc(hero, location_collection[1]);
+            GoOnLoc(hero, location_collection[1], sm);
 			break;
 		case LocList::locSACREDMOUNTAINS:
-            GoOnLoc(hero, location_collection[2]);
+            GoOnLoc(hero, location_collection[2], sm);
 			break;
         case LocList::locCAVEOFTIME:
             if(hero.getDay() % 15 == 0)
             {
-                GoOnLoc(hero, location_collection[3]);
+                GoOnLoc(hero, location_collection[3], sm);
             }
             else
             {

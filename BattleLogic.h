@@ -1,9 +1,10 @@
 #pragma once
 #include "ModulePerson.h"
+class StateMachine;
 
 int MenuGo(Hero&);
 
-void FindLocation(Hero&);
+void FindLocation(Hero&, StateMachine*);
 
 void WeaponShop(Hero&);
 

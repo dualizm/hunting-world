@@ -1,3 +1,4 @@
 #pragma once
+class StateMachine;
 
-void BattleMode();
+void BattleMode(StateMachine* sm);

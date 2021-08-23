@@ -11,14 +11,18 @@
 #include "Logic.h" // Includes a file with menu logic
 #include "TextMode.h" // Includes a file with the text component of the menu
 #include "BattleMenu.h" // Includes a file with game logic
-
+#include "StateMachine.h" // Includes a file with logic states
 int main()
 {
 	HWND consoleWindow = GetConsoleWindow(); SetWindowLong(consoleWindow, GWL_STYLE, GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
     system("mode con cols=80 lines=26");
     Screensaver(); // Displays the game splash screen
 
-	bool work{true};
+    StateMachine* sm = new StateMachine();
+
+    bool work{true};
+    sm->add(work);
+
 	while (work)
     {
 		system("cls");
@@ -28,7 +32,7 @@ int main()
 		switch (choice)
 		{
         case static_cast<int>(main_menu::BATTLEMODE):
-            BattleMode(); // Starts the battle against monsters! PROCESS
+            BattleMode(sm); // Starts the battle against monsters! PROCESS
 			break;
         case static_cast<int>(main_menu::STORYLINE):
             StoryLine(); // Displays game history! PROCESS

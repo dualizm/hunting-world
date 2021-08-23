@@ -160,7 +160,7 @@ public:
         this->health = generateStat(150);
         this->gold = 500;
         this->chance = generateStat(100);
-        this->damage = generateStat(5);
+        this->damage = generateStat(8);
         this->color = ConsoleColor::DarkGray;
         this->sprite = sprites::Old_Castle::ghost;
     }
@@ -187,7 +187,7 @@ public:
         this->health = generateStat(100);
         this->gold = 670;
         this->chance = generateStat(80);
-        this->damage = generateStat(14);
+        this->damage = generateStat(10);
         this->color = ConsoleColor::White;
         this->sprite = sprites::Old_Castle::skeleton;
     }
@@ -216,7 +216,7 @@ public:
         this->health = generateStat(300);
         this->gold = 1287;
         this->chance = generateStat(78);
-        this->damage = generateStat(7);
+        this->damage = generateStat(14);
         this->color = ConsoleColor::LightGray;
         this->sprite = sprites::Old_Castle::knight;
     }
@@ -246,7 +246,7 @@ public:
         this->health = generateStat(400);
         this->gold = 1500;
         this->chance = generateStat(78);
-        this->damage = generateStat(10);
+        this->damage = generateStat(17);
         this->color = ConsoleColor::LightGray;
         this->sprite = sprites::Sacred_mountains::stone_golem;
     }
@@ -273,7 +273,7 @@ public:
         this->health = generateStat(450);
         this->gold = 1600;
         this->chance = generateStat(88);
-        this->damage = generateStat(8);
+        this->damage = generateStat(15);
         this->color = ConsoleColor::Brown;
         this->sprite = sprites::Sacred_mountains::angel;
     }
@@ -302,7 +302,7 @@ public:
         this->health = generateStat(500);
         this->gold = 3000;
         this->chance = generateStat(78);
-        this->damage = generateStat(15);
+        this->damage = generateStat(20);
         this->color = ConsoleColor::LightRed;
         this->sprite = sprites::Sacred_mountains::fire_spirit;
     }
@@ -332,7 +332,7 @@ public:
         this->health = generateStat(700);
         this->gold = 0;
         this->chance = generateStat(80);
-        this->damage = generateStat(20);
+        this->damage = generateStat(25);
         this->color = ConsoleColor::Yellow;
         this->sprite = sprites::Cave_of_time::great_dragon;
     }

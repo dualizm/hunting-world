@@ -6,6 +6,7 @@
 #include "Color.h"
 #include "BattleLogic.h"
 #include "Listgui.h"
+#include "StateMachine.h"
 
 #include <random>
 #include <functional>
@@ -216,15 +217,26 @@ bool WinFight(Hero& hero, Enemy* p_enemy)
 	return false;
 }
 
-void LoseFight()
+void LoseFight(StateMachine* sm)
 {
+    system("cls");
     SetColor(ConsoleColor::LightRed, ConsoleColor::Black);
-	Sms("You died in battle!");
-    Sms(" [=GAME-OVER=] ");
+    std::vector<std::string> lph {{"\t\t\t\t [=GAME-OVER=] "}, {"\t\t\t     You died in battle! "}, {"\t\t Don't give up hero, the world believes in you! "}};
+    Footnote();
+    for(auto& str : lph)
+    {
+        for(auto& ch : str)
+        {
+            std::cout << ch;
+            Sleep(150);
+        }
+        std::cout << std::endl;
+    }
 
 	DSTgo();
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
 
-    exit(0);
+    sm->backMain();
 }
 
 enum class FightList
@@ -235,15 +247,16 @@ enum class FightList
     fightRUN = 4,
 };
 
-void Fight(Hero& hero, std::string loc)
+void Fight(Hero& hero, std::string loc, StateMachine* sm)
 {
 
     Enemy* p_enemy = Notification(hero, loc);
 
-	bool fight = true;
+    bool confrontation = true;
 	short getchoice;
+    sm->add(confrontation);
 
-	while (fight)
+    while (confrontation)
 	{
 		system("cls");
 		Solution(getchoice, p_enemy, hero);
@@ -269,7 +282,7 @@ void Fight(Hero& hero, std::string loc)
                 }
                 else
                 {
-                    TryEscape(hero, p_enemy, fight);
+                    TryEscape(hero, p_enemy, confrontation);
                 }
 				break;
 			default:
@@ -278,11 +291,11 @@ void Fight(Hero& hero, std::string loc)
 		}
 
 		if (hero.getHealth() <= 0)
-			LoseFight();
+            LoseFight(sm);
 
 		if (p_enemy->getHealth() <= 0 && hero.getHealth() > 0)
         {
-			fight = WinFight(hero, p_enemy);
+            confrontation = WinFight(hero, p_enemy);
             hero.resetSp = 0;
         }
 	}
