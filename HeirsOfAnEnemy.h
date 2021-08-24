@@ -5,7 +5,7 @@
 // Mysterious_Forest
     // common enemy
 
-class Slime : public Enemy
+class Slime final : public Enemy
 {
 public:
     Slime(Hero& h) : Enemy("", 0, 0, 0)
@@ -33,7 +33,7 @@ public:
 
 };
 
-class Goblin : public Enemy
+class Goblin final : public Enemy
 {
 public:
     Goblin(Hero& h) : Enemy("", 0, 0, 0)
@@ -61,7 +61,7 @@ public:
 };
 
 
-class FSlime : public Enemy
+class FSlime final : public Enemy
 {
 public:
     FSlime(Hero& h) : Enemy("", 0, 0, 0)
@@ -90,7 +90,7 @@ public:
 
     // boss enemy
 
-class SlimeBoss : public Enemy
+class SlimeBoss final : public Enemy
 {
 public:
     SlimeBoss(Hero& h)  : Enemy("", 0, 0, 0)
@@ -119,7 +119,7 @@ public:
 
     // uncommon enemy
 
-class RSlimeBoss : public Enemy
+class RSlimeBoss final : public Enemy
 {
 public:
     RSlimeBoss(Hero& h)  : Enemy("", 0, 0, 0)
@@ -149,7 +149,7 @@ public:
 // Old_Castle
     // common enemy
 
-class Ghost : public Enemy
+class Ghost final : public Enemy
 {
 public:
     Ghost(Hero& h) : Enemy("",0, 0, 0)
@@ -176,7 +176,7 @@ public:
     }
 };
 
-class Skeleton : public Enemy
+class Skeleton final : public Enemy
 {
 public:
     Skeleton(Hero& h) : Enemy("",0, 0, 0)
@@ -205,7 +205,7 @@ public:
 
     // boss enemy
 
-class Knight : public Enemy
+class Knight final : public Enemy
 {
 public:
     Knight(Hero& h) : Enemy("",0, 0, 0)
@@ -235,7 +235,7 @@ public:
 // Sacred mountains
     // common enemy
 
-class StoneGolem : public Enemy
+class StoneGolem final : public Enemy
 {
 public:
     StoneGolem(Hero& h) : Enemy("",0, 0, 0)
@@ -262,7 +262,7 @@ public:
     }
 };
 
-class Angel : public Enemy
+class Angel final : public Enemy
 {
 public:
     Angel(Hero& h) : Enemy("",0, 0, 0)
@@ -291,7 +291,7 @@ public:
 
     // boss enemy
 
-class FireSpirit : public Enemy
+class FireSpirit final : public Enemy
 {
 public:
     FireSpirit(Hero& h) : Enemy("",0, 0, 0)
@@ -321,7 +321,7 @@ public:
 // Cave of time
     // legendary boss
 
-class GreatDragon : public Enemy
+class GreatDragon final : public Enemy
 {
 public:
     GreatDragon(Hero& h) : Enemy("", 0, 0, 0)

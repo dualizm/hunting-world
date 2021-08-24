@@ -3,7 +3,7 @@
 #include "Hero.h"
 
 
-class Fists : public Weapon
+class Fists final : public Weapon
 {
 public:
 	Fists() : Weapon(10, "Fists", 100.0f, 0) {}
@@ -30,7 +30,7 @@ public:
     }
 };
 
-class Sword : public Weapon
+class Sword final : public Weapon
 {
 public:
     Sword() : Weapon(20, "Sword", 85.0f, 800) {}
@@ -57,7 +57,7 @@ public:
     }
 };
 
-class Gun : public Weapon
+class Gun final : public Weapon
 {
 public:
     Gun() : Weapon(25, "Gun", 75.0f, 800) {}
@@ -85,7 +85,7 @@ public:
 
 };
 
-class Cursedbow : public Weapon
+class Cursedbow final : public Weapon
 {
 public:
     Cursedbow() : Weapon(70, "Cursedbow", 65.0f, 2500) {}
@@ -112,7 +112,7 @@ public:
 
 };
 
-class StaffHealth : public Weapon
+class StaffHealth final : public Weapon
 {
 public:
     StaffHealth() : Weapon(55, "Staff", 90.0f, 1500) {}
@@ -139,7 +139,7 @@ public:
 
 };
 
-class SnakeBlade : public Weapon
+class SnakeBlade final : public Weapon
 {
 public:
     SnakeBlade() : Weapon(100, "SnakeBlade", 80.0f, 5000) {}
@@ -165,7 +165,7 @@ public:
     }
 };
 
-class DragonSlayer : public Weapon
+class DragonSlayer final : public Weapon
 {
 public:
     DragonSlayer() : Weapon(200, "DragonSlayer", 80.0f, 8000) {}

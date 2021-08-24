@@ -10,7 +10,7 @@ class Weapon;
 
 using list_item = std::list<std::shared_ptr<Item>>;
 
-class Hero : public Person
+class Hero final : public Person
 {
 
 private:

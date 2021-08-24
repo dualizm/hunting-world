@@ -2,7 +2,7 @@
 #include "ItemClass.h"
 #include <list>
 
-class BottleHealth : public Item
+class BottleHealth final : public Item
 {
 private:
 	int health;
@@ -23,11 +23,11 @@ public:
 
     std::string info() override;
 
-	~BottleHealth() override {}
+    ~BottleHealth() = default;
 
 };
 
-class MedicinalHerb : public Item
+class MedicinalHerb final : public Item
 {
 private:
 	int health;
@@ -50,11 +50,11 @@ public:
 
     std::string info() override;
 
-	~MedicinalHerb() override {}
+    ~MedicinalHerb() = default;
 
 };
 
-class HealthScroll : public Item
+class HealthScroll final : public Item
 {
 private:
     int health;
@@ -77,10 +77,10 @@ public:
 
     std::string info() override;
 
-    ~HealthScroll() override {}
+    ~HealthScroll() = default;
 };
 
-class Cake : public Item
+class Cake final : public Item
 {
 public:
     Cake()
@@ -98,7 +98,7 @@ public:
 
     std::string info() override;
 
-    ~Cake() override {}
+    ~Cake() = default;
 };
 
 
