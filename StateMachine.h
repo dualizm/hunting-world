@@ -3,7 +3,7 @@
 #include <utility>
 #include <vector>
 
-struct StateMachine
+struct StateMachine final
 {
     StateMachine() = default;
 

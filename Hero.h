@@ -48,4 +48,6 @@ public:
 
     static void debugcheatMode(int& health, int& gold, float& lvl, int& day);
 
+    ~Hero() = default;
+
 };

@@ -1,6 +1,6 @@
 #pragma once
 
-enum List
+enum class List
 {
 	ADVENTURE = 1,
 	TAVERN,

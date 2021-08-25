@@ -54,12 +54,12 @@ int MenuGo(Hero& h)
 	FSL();
 
 	std::cout <<
-	"\n " << List::ADVENTURE << ")Go on an adventure\n" <<
-	" " << List::TAVERN << ")Go to the tavern\n" <<
-	" " << List::WEAPON << ")Weapon shop\n" <<
-	" " << List::ITEMS << ")Item store\n" <<
-	" " << List::INVENTORY << ")Inventory\n" <<
-	" " << List::EXIT << ")Exit to the main menu\n\n";
+    "\n " << static_cast<int>(List::ADVENTURE) << ")Go on an adventure\n" <<
+    " " << static_cast<int>(List::TAVERN) << ")Go to the tavern\n" <<
+    " " << static_cast<int>(List::WEAPON) << ")Weapon shop\n" <<
+    " " << static_cast<int>(List::ITEMS) << ")Item store\n" <<
+    " " << static_cast<int>(List::INVENTORY) << ")Inventory\n" <<
+    " " << static_cast<int>(List::EXIT) << ")Exit to the main menu\n\n";
 	FSL();
     std::cout << "\n Enter the number to select:\n > ";
 

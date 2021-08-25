@@ -7,6 +7,7 @@
 
 #define _WIN32_WINNT 0x0500
 #include <windows.h>
+#include <cwchar>
 #include "Color.h"
 #include "Logic.h" // Includes a file with menu logic
 #include "TextMode.h" // Includes a file with the text component of the menu
@@ -14,8 +15,16 @@
 #include "StateMachine.h" // Includes a file with logic states
 int main()
 {
-	HWND consoleWindow = GetConsoleWindow(); SetWindowLong(consoleWindow, GWL_STYLE, GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
-    system("mode con cols=80 lines=26");
+    //HWND consoleWindow = GetConsoleWindow(); SetWindowLong(consoleWindow, GWL_STYLE, GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
+    CONSOLE_FONT_INFOEX cfi;
+    cfi.cbSize = sizeof(cfi);
+    cfi.nFont = 0;
+    cfi.dwFontSize.X = 0;                   // Width of each character in the font
+    cfi.dwFontSize.Y = 24;                  // Height
+    cfi.FontFamily = FF_DONTCARE;
+    cfi.FontWeight = FW_NORMAL;
+    std::wcscpy(cfi.FaceName, L"Consolas"); // Choose your font
+    SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
     Screensaver(); // Displays the game splash screen
 
     auto sm = new StateMachine();
