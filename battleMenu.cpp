@@ -4,6 +4,7 @@
 #include "Enum_List.h"
 #include "Weapon.h"
 #include "HeirsOfAnWeapon.h"
+#include "StateMachine.h"
 
 void GetName(std::string& name)
 {
@@ -30,15 +31,17 @@ void GetName(std::string& name)
 	} while (!correct);
 }
 
-void BattleMode()
+void BattleMode(StateMachine* sm)
 {
 	int health{ 100 }, gold{ 0 }, day{ 1 }; float lvl{ 1.0f };
-	Hero::DebugcheatMode(health, gold, lvl, day); system("cls");
+    Hero::debugcheatMode(health, gold, lvl, day); system("cls");
 
     std::string name; GetName(name);     // Get the player's name
     Hero hero(name, health, gold, lvl, day, std::make_shared<Fists>()); // Create a hero
 
 	bool battle{ true };
+    sm->add(battle);
+
 	while (battle)
 	{
 		system("cls");
@@ -46,25 +49,27 @@ void BattleMode()
 
 		switch (go)
 		{
-        case List::ADVENTURE: // Search for locations! PROCESS
-			FindLocation(hero);
+        case static_cast<int>(List::ADVENTURE): // Search for locations! PROCESS
+            FindLocation(hero, sm);
 			break;
-        case List::TAVERN: // Rest in the tavern! REALIZED
-			if (hero.GetGold() < 150 * hero.GetDay())
+        case static_cast<int>(List::TAVERN): // Rest in the tavern! REALIZED
+            if (hero.getGold() < 150 * hero.getDay())
 				LackOfGoldT(hero);
 			else
 				Tavern(hero);
+            if(hero.getDay() > 30)
+                BadEnd();
 			break;
-        case List::WEAPON: // Weapon shop! REALIZED
+        case static_cast<int>(List::WEAPON): // Weapon shop! REALIZED
 			WeaponShop(hero);
 			break;
-        case List::ITEMS: // Shop with items! REALIZED
+        case static_cast<int>(List::ITEMS): // Shop with items! REALIZED
 			ItemStore(hero);
 			break;
-        case List::INVENTORY: // Player Inventory! REALIZED
+        case static_cast<int>(List::INVENTORY): // Player Inventory! REALIZED
 			Inventory(hero);
 			break;
-        case List::EXIT: // Exit to the main menu! REALIZED
+        case static_cast<int>(List::EXIT): // Exit to the main menu! REALIZED
 			Exit(battle);
 			break;
 		default:

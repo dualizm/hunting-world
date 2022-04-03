@@ -1,24 +1,21 @@
 #include "HeirsOfAnItem.h"
 
-void BottleHealth::Use(Hero& hero)
+void BottleHealth::use(Hero& hero)
 {
-	if (hero.GetHealth() < 100)
-	{
-		hero.Health(30);
-	}
+    hero.addHealth(health);
 }
 
-std::string BottleHealth::GetName()
+std::string BottleHealth::getName()
 {
 	return name;
 }
 
-int BottleHealth::GetPrice()
+int BottleHealth::getPrice()
 {
 	return price;
 }
 
-std::string BottleHealth::Info()
+std::string BottleHealth::info()
 {
-	return std::to_string(health);
+    return "+" + std::to_string(health);
 }

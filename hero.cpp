@@ -1,61 +1,74 @@
 #include "Hero.h"
 #include "Color.h"
+#include "Weapon.h"
 #include <iomanip>
 #include <memory>
+#include <random>
+#include "Enemy.h"
 
-void Hero::Upday() { day++; }
+void Hero::upDay() { day++; }
 
-void Hero::PaymentTavern()
+void Hero::paymentTavern()
 {
 	gold -= 150 * day;
 }
 
-void Hero::Buy(int price)
+void Hero::buy(int price)
 {
 	gold -= price;
 }
 
-int Hero::GetDay()
+int Hero::getDay()
 { 
 	return day;
 }
 
-void Hero::AddGold(int newGold) 
+int Hero::getMaxHealth()
+{
+    return (100 - 30) + ( 30 * getLvl());
+}
+
+void Hero::addGold(int newGold)
 { 
 	gold += newGold;
 }
 
-void Hero::Health(int health)
+void Hero::addHealth(int health)
 { 
 	this->health += health;
 }
 
-int Hero::GetAttack() 
+int Hero::getAttack()
 { 
 	return weapon->getDamage();
 }
 
-std::string Hero::GetWeaponName() 
+std::string Hero::getWeaponName()
 { 
 	return weapon->getName();
 }
 
-int Hero::GetWeaponAttack() 
+int Hero::getWeaponAttack()
 {
 	return weapon->getDamage();
 }
 
-int Hero::GetWeaponAttackS()
+int Hero::getWeaponAttackS()
 {
     return weapon->getDamageSpecialAttack();
 }
 
-void Hero::LvlUp(float exp)
+size_t Hero::getMaxSizeInventory()
+{
+    return 6;
+}
+
+void Hero::lvlUp(float exp)
 {
 	lvl += exp; 
 }
 
-void Hero::SwapWeapon(std::shared_ptr<Weapon> alt_w)
+void Hero::swapWeapon(std::shared_ptr<Weapon> alt_w)
 {
     std::swap(weapon, alt_w);
 }
@@ -69,12 +82,12 @@ void Hero::showStatus()
 
 	std::cout << " | " << " Health: ";
 	SetColor(ConsoleColor::Green, ConsoleColor::Black);
-	std::cout << std::setw(4) << health;
+    std::cout << std::setw(4) << getHealth();
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 
 	std::cout << " | " << " Level: ";
 	SetColor(ConsoleColor::Yellow, ConsoleColor::Black);
-	std::cout << GetLvl();
+    std::cout << getLvl();
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 
 	std::cout << " | " << " Damage: ";
@@ -91,12 +104,13 @@ void Hero::showStatus()
 
 }
 
-void Hero::AttackEnemy(Hero& hero, Enemy* enemy, int damageInt)
+void Hero::attackEnemy(Hero& hero, Enemy* enemy, int damageIn)
 {
-    if (damageInt == weapon->getDamageSpecialAttack())
+    if (damageIn == weapon->getDamageSpecialAttack())
 	{
-		std::cout << " Special Attack Charge! -" + std::to_string(5 + hero.GetLvl()) + " your health" << std::endl;
+        std::cout << " Special Attack Charge! " + weapon->getInfo(hero) << std::endl;
 		weapon->resultSpecialAttack(hero);
+        hero.resetSp = 3;
 	}
 	std::cout << " You attack the enemy!" << std::endl;
 
@@ -105,32 +119,34 @@ void Hero::AttackEnemy(Hero& hero, Enemy* enemy, int damageInt)
 
 	if (chc > weapon->getChance())
 	{
-		std::cout << " You missed! =(" << std::endl;
+        std::cout << " You missed! :(" << std::endl;
 	}
 	else
 	{
-		std::cout << " You hit him at -" + std::to_string(damageInt) + " health!" << std::endl;
-		enemy->SetHealth(enemy->GetHealth() - damageInt);
+        std::cout << " You hit him at -" + std::to_string(damageIn) + " health!" << std::endl;
+        enemy->SetHealth(enemy->getHealth() - damageIn);
 	}
+
+    hero.resetSp == 0 ? hero.resetSp : hero.resetSp--;
 }
 
-void Hero::DebugcheatMode(int& health, int& gold, float& lvl, int& day)
+void Hero::debugcheatMode(int& health, int& gold, float& lvl, int& day)
 {
 	int chek;
-	std::cout << " Enter game mode (0 - godmode, 1 - gamemod, 2 - auto godmode): ";
-	std::cin >> chek;
+    std::cout << " Enter game mode (0 - gamemod, 1 - godmode, 2 - auto godmode): ";
+    chek = checkInput();
 	if (chek == 0)
 		return;
 	else if (chek == 1)
 	{
-		std::cout << "Enter health: ";
-		std::cin >> health;
-		std::cout << "Enter gold: ";
-		std::cin >> gold;
-		std::cout << "Enter lvl: ";
-		std::cin >> lvl;
-		std::cout << "Enter day: ";
-		std::cin >> day;
+        std::cout << "Enter health: ";
+        std::cin >> health;
+        std::cout << "Enter gold: ";
+        std::cin >> gold;
+        std::cout << "Enter lvl: ";
+        std::cin >> lvl;
+        std::cout << "Enter day: ";
+        std::cin >> day;
 	}
 	else if (chek == 2)
 	{

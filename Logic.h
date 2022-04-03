@@ -1,9 +1,11 @@
 #pragma once
 
-char Menu();
+void Menu(short& mode);
 
 void Exit(bool& request);
 
 void ErrorMessage();
 
 void WinThisGame();
+
+void BadEnd();

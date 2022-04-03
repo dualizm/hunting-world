@@ -1,5 +1,5 @@
 #include <Windows.h>
-#include "color.h"
+#include "Color.h"
 
 //--------------------------------Color-----------------------------------///
 

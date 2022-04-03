@@ -1,18 +1,16 @@
 #pragma once
 #include <list>
 #include <memory>
-
-#include "ItemClass.h"
-#include "Weapon.h"
-#include "Enemy.h"
 #include "Sms.h"
+#include "Person.h"
+
 class Item;
 class Enemy;
 class Weapon;
 
 using list_item = std::list<std::shared_ptr<Item>>;
 
-class Hero : public Person
+class Hero final : public Person
 {
 
 private:
@@ -20,32 +18,36 @@ private:
     std::shared_ptr<Weapon> weapon; // WEAPON
 
 public:
-    const size_t sizeInv{6};
+    size_t resetSp{0};
 
     list_item inventory; // INVENTORY
 
     Hero(std::string name, int health, int gold, float lvl, int day, std::shared_ptr<Weapon> weapon)
-		: Person(name, health, gold, lvl), day(day), weapon(weapon) {}
+        : Person(name, health, gold, lvl), day(day), weapon(weapon) {
+    }
 	
-	void Upday();
-	void PaymentTavern();
-	void Buy(int price);
+    void upDay();
+    void paymentTavern();
+    void buy(int price);
+    int getMaxHealth();
+    int getDay();
+    void addGold(int newGold);
+    void addHealth(int health);
+    int getAttack();
+    std::string getWeaponName();
+    int getWeaponAttack();
+    int getWeaponAttackS();
+    void lvlUp(float exp);
+    size_t getMaxSizeInventory();
 
-	int GetDay();
-	void AddGold(int newGold);
-	void Health(int health);
-	int GetAttack();
-	std::string GetWeaponName();
-	int GetWeaponAttack();
-    int GetWeaponAttackS();
-	void LvlUp(float exp);
-
-    void SwapWeapon(std::shared_ptr<Weapon> alt_w);
+    void swapWeapon(std::shared_ptr<Weapon> alt_w);
 
 	void showStatus();
 
-	void AttackEnemy(Hero& hero, Enemy* enemy, int damageInt);
+    void attackEnemy(Hero& hero, Enemy* enemy, int damageInt);
 
-	static void DebugcheatMode(int& health, int& gold, float& lvl, int& day);
+    static void debugcheatMode(int& health, int& gold, float& lvl, int& day);
+
+    ~Hero() = default;
 
 };

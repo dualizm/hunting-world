@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
-#include "Person.h"
+
+class Person;
+class Hero;
 
 class Weapon
 {
@@ -26,9 +28,13 @@ public:
 	int getDamage() const;
 	int getPrice() const;
 
-    int getDamageSpecialAttack();
+    virtual int getDamageSpecialAttack() = 0;
 
-	void resultSpecialAttack(Person& hero);
+    virtual void resultSpecialAttack(Person& hero) = 0;
 
-	virtual ~Weapon() {}
+    virtual std::string getInfo(Hero& hero) = 0;
+
+    virtual std::string shopInfo() = 0;
+
+    virtual ~Weapon() = default;
 };

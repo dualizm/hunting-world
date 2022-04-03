@@ -1,22 +1,28 @@
 #include "SupportFunctions.h"
 #include "ModulePerson.h"
 #include "Logic.h"
+#include "Color.h"
+#include "ItemClass.h"
 #include <iomanip>
 
 void DisplayInventory(Hero& hero)
 {
-	Footnote();
-	FSL();
+    FSL();
+    std::cout << "\n\n";
+    SetColor(ConsoleColor::Black, ConsoleColor::Red);
+    std::cout << " " << "Inventory: " << std::endl;
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
+    std::cout << "\n\n";
+    FSL();
 
-	int i = 1;
+    int i = 1;
 	std::cout << "\n";
 	for (auto& o : hero.inventory)
 	{
-		std::cout << "   " << i << ")" << std::setw(20) << o->GetName();
-		if (i % 3 == 0) std::cout << "\n\n";
-		i++;
+        std::cout << " [" << i << "] |" << o->getName() << "\n\n";
+        i++;
 	}
-	std::cout << "\n\n";
+    std::cout << std::endl;
 	FSL();
 }
 
@@ -42,9 +48,16 @@ enum class InvCh
 
 void useItemInInventory(Hero& hero, list_item::iterator it,int place)
 {
-	std::advance(it, place);
-	(*it)->Use(hero);
-	hero.inventory.erase(it);
+    if(hero.getHealth() >= hero.getMaxHealth())
+    {
+        Sms("You are already at maximum health!");
+    }
+    else
+    {
+        std::advance(it, place);
+        (*it)->use(hero);
+        hero.inventory.erase(it);
+    }
 }
 
 void InventoryChoice(Hero& hero)

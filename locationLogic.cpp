@@ -5,10 +5,21 @@
 #include "LogicShopFunction.h"
 #include "Logic.h"
 #include "FightLogic.h"
+#include "Listgui.h"
+#include "StateMachine.h"
 
 #include <vector>
 
-void LocationChoice(short& gch, std::vector<std::string> loclist)
+void ErrorFindLocation()
+{
+    SetColor(ConsoleColor::LightBlue, ConsoleColor::Black);
+    Sms("You try to find your way, but the magical light takes you off the path.");
+
+    DSTgo();
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
+}
+
+void LocationChoice(short& gch)
 {
 	FSL();
 	FootnoteL();
@@ -18,7 +29,7 @@ void LocationChoice(short& gch, std::vector<std::string> loclist)
 	FootnoteL();
 	FSL();
 	int i = 1;
-	for (auto& o : loclist)
+    for (auto& o : location_collection)
 	{
 		std::cout << " " << i << ") " << o << std::endl;
 		i++;
@@ -30,14 +41,24 @@ void LocationChoice(short& gch, std::vector<std::string> loclist)
 	gch = checkInput();
 }
 
-void FightChoice(short& gch, std::string loc, std::vector<std::string> mFch)
+void FightChoice(short& gch, Hero& hero, std::string loc, std::vector<std::string> mFch)
 {
 	FSL();
 	FootnoteL();
 	SetColor(ConsoleColor::Black, ConsoleColor::Red);
 	std::cout << " " << loc << std::endl;
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
-	FootnoteL();
+    std::cout << "\n";
+    std::cout << " Health: ";
+    SetColor(ConsoleColor::LightGreen, ConsoleColor::Black);
+    std::cout << hero.getHealth();
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
+
+    std::cout << " | " << "Gold: ";
+    SetColor(ConsoleColor::Yellow, ConsoleColor::Black);
+    std::cout << hero.getGold() << "\n\n";
+    SetColor(ConsoleColor::White, ConsoleColor::Black);
+
 	FSL();
 	int i = 1;
 	for (auto& o : mFch)
@@ -45,14 +66,14 @@ void FightChoice(short& gch, std::string loc, std::vector<std::string> mFch)
 		std::cout << " " << i << ")" << o << std::endl;
 		i++;
 	}
-	FSL();
+    FSL();
 
 	std::cout << "\n Enter your choice (0 to exit):\n > ";
 
 	gch = checkInput();
 }
 
-void GoOnLoc(Hero& hero, std::string loc)
+void GoOnLoc(Hero& hero, std::string loc, StateMachine* sm)
 {
 	enum Fchoice
 	{
@@ -60,20 +81,21 @@ void GoOnLoc(Hero& hero, std::string loc)
 		FExit = 0
 	};
 
-	std::vector<std::string> mFch{ {"Find the enemy"} };
+    std::vector<std::string> mFch{ {"Find the enemy"} };
 
 	bool check{ true };
 	short getchoice;
+    sm->add(check);
 
 	while (check)
 	{
 		system("cls");
-		FightChoice(getchoice, loc, mFch);
+        FightChoice(getchoice, hero, loc, mFch);
 
 		switch (getchoice)
 		{
 		case Fchoice::FENEMY:
-			Fight(hero);
+            Fight(hero, loc, sm);
 			break;
 		case Fchoice::FExit:
             check = false;

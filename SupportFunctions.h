@@ -2,6 +2,8 @@
 #include <iostream>
 #include <Windows.h>
 
+short checkInput();
+
 inline void FSL()
 {
 	std::cout << "+";

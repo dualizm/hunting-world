@@ -2,7 +2,7 @@
 #include "Color.h"
 #include <iomanip>
 
-void Enemy::AttackHero(Person& hero)
+void Enemy::attackHero(Person& hero)
 {
 	std::cout << " The enemy is attacking you!" << std::endl;
 
@@ -11,12 +11,23 @@ void Enemy::AttackHero(Person& hero)
 
 	if (chc > chance)
 	{
-		std::cout << " He missed!" << std::endl;
+        std::cout << " He missed! :)" << std::endl;
 	}
 	else
 	{
-		std::cout << " He hit you at -" + std::to_string(damage) + " health!" << std::endl;
-		hero.SetHealth(hero.GetHealth() - damage);
+        std::mt19937 randAttack(static_cast<unsigned int>(time(0)));
+        int spEnemy = 0 + randAttack() % 100;
+        if(spEnemy > 90)
+        {
+            std::cout << " He used a special attack!" << std::endl;
+            std::cout << " He hit you at -" + std::to_string(damage * 2) + " health!" << std::endl;
+            hero.SetHealth(hero.getHealth() - damage * 2);
+        }
+        else
+        {
+            std::cout << " He hit you at -" + std::to_string(damage) + " health!" << std::endl;
+            hero.SetHealth(hero.getHealth() - damage);
+        }
 	}
 
 }
@@ -44,7 +55,7 @@ void Enemy::showStatus()
 
 	std::cout << " | " << " Level: ";
 	SetColor(ConsoleColor::Yellow, ConsoleColor::Black);
-	std::cout << GetLvl();
+    std::cout << getLvl();
 	SetColor(ConsoleColor::White, ConsoleColor::Black);
 
 	std::cout << " | " << " Damage: ";
@@ -61,17 +72,17 @@ void Enemy::showStatus()
 
 }
 
-int Enemy::generateStat(int param)
+int Enemy::generateStat(Hero& h, int param)
 {
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
-	return static_cast<int>(
+    return static_cast<int>(
 		param + mersenne() %
-		static_cast<int>((param + (param / 100) * (lvl * 40))));
+        static_cast<int>((param + (param / 100) * (((lvl + 100) * (20 * h.getLvl()) / 2) ) ))) ;
 }
 
 float Enemy::generateLvl(Person& h, float param)
 {
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
 
-	return static_cast<int>(param) + mersenne() % h.GetLvl();
+    return static_cast<int>(param) + mersenne() % h.getLvl();
 }

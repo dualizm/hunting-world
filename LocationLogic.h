@@ -2,7 +2,10 @@
 #include <string>
 #include <vector>
 #include "Hero.h"
+class StateMachine;
 
-void LocationChoice(short& gch, std::vector<std::string> loclist);
+void LocationChoice(short& gch);
 
-void GoOnLoc(Hero& hero, std::string loc);
+void GoOnLoc(Hero& hero, std::string loc, StateMachine* sm);
+
+void ErrorFindLocation();

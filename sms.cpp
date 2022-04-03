@@ -1,4 +1,4 @@
-#include "sms.h"
+#include "Sms.h"
 #include "SupportFunctions.h"
 
 void Sms(std::string s)
