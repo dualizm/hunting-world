@@ -9,34 +9,33 @@ void WinThisGame()
 {
     clrcon();
     FSL();
-    sleep(1500);
+    sleep(1);
     std::cout << "\n\t\t" << "Hunting world\n" << std::endl;
-    sleep(1500);
+    sleep(1);
 
     std::string finalStory{"\n\t\tFinally, the brave hero defeated the great evil!\n"
                            "\t\tThe remaining monsters fled in fear of the hero.\n"
                            "\t\tA quiet life has come, but who knows,\n"
                            "\t\tevil always finds its way!\n\n"};
-    sleep(1500);
+    sleep(1);
     FSL();
     for(auto& ch : finalStory)
     {
         std::cout << ch;
-        sleep(150);
     }
     FSL();
-    sleep(1500);
+    sleep(3);
     std::cout << "\n\t\t" << "Authors:\n" << std::endl;
-    sleep(1500);
+    sleep(3);
     std::cout << "\t\t" << "Programmer: Notidman;\n" << std::endl;
-    sleep(1500);
+    sleep(3);
     std::cout << "\t\t" << "ASCII artists: Notidman, HollowKaeden, jbs, Ooyamaneko;\n" << std::endl;
-    sleep(1500);
+    sleep(3);
     FSL();
-    sleep(1500);
+    sleep(3);
     std::cout << "\n\t\t" << "Thanks for playing, we hope you enjoyed it!\n" << std::endl;
     FSL();
-    sleep(1500);
+    sleep(3);
     DSTgo();
 	exit(0);
 }
@@ -50,9 +49,9 @@ void BadEnd()
     for(auto& o : str)
     {
         lpct::prcolor<char>(lpct::colors::red, o);
-        sleep(250);
+        sleep(1);
     }
-    sleep(700);
+    sleep(1);
     DSTgo();
 
     exit(0);
@@ -93,6 +92,6 @@ void ErrorMessage()
   clrcon();
 	FootnoteB();
 	std::cout << " There is no such command." << std::endl;
-	sleep(2000);
+	sleep(2);
 	DSTgo();
 }

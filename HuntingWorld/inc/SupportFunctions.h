@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 
 short checkInput();
 
@@ -30,5 +31,6 @@ inline void FootnoteB()
 inline void DSTgo()
 {
 	std::cout << "\n Do something to get out!\n";
-  getc(stdin);
+  std::string trash;
+  std::cin >> trash;
 }

@@ -8,5 +8,5 @@ void Sms(std::string s)
   clrcon();
 	Footnote();
 	std::cout << " " << s << std::endl;
-	sleep(1500);
+	sleep(1);
 }

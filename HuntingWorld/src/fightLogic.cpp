@@ -24,7 +24,7 @@ void Attack(Hero& hero, Enemy* p_enemy, int damageIn)
 {
     ShowBattlelogText();
 
-	sleep(150);
+	sleep(1);
 	hero.attackEnemy(hero, p_enemy, damageIn);
 	if (p_enemy->getHealth() <= 0 && hero.getHealth() > 0)
 	{
@@ -32,7 +32,7 @@ void Attack(Hero& hero, Enemy* p_enemy, int damageIn)
 		return;
 	}
 	p_enemy->attackHero(hero);
-	sleep(150);
+	sleep(1);
 	FSL();
 
 	DSTgo();
@@ -45,7 +45,7 @@ void SignalAttackReset()
 
     std::cout << " Special attack is still on cooldown!";
 
-    sleep(150);
+    sleep(1);
     DSTgo();
 }
 
@@ -53,10 +53,10 @@ void NoEscape()
 {
     ShowBattlelogText();
 
-    sleep(150);
+    sleep(1);
     lpct::prcolorln<std::string>(lpct::colors::magenta, " A magic barrier blocks your escape route,\n there is no way out!");
     FSL();
-    sleep(150);
+    sleep(1);
     DSTgo();
 }
 
@@ -64,7 +64,7 @@ void TryEscape(Hero& hero, Enemy* p_enemy, bool& status)
 {
     ShowBattlelogText();
 
-    sleep(150);
+    sleep(1);
     std::mt19937 mersenne(static_cast<unsigned int>(time(0)));
     int ch = 0 + mersenne() % 100;
 
@@ -220,12 +220,11 @@ void LoseFight(StateMachine* sm)
         for(auto& ch : str)
         {
           lpct::prcolor<char>(lpct::colors::red, ch);
-            sleep(150);
         }
         std::cout << std::endl;
     }
 
-    sleep(2000);
+    sleep(2);
 
     sm->backMain();
 }

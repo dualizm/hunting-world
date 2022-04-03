@@ -30,7 +30,7 @@ void notFoundInInventory()
   clrcon();
 	FootnoteB();
 	std::cout << " Not found in inventory." << std::endl;
-	sleep(2000);
+	sleep(2);
 	DSTgo();
 }
 

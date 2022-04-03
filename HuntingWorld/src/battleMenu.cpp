@@ -19,11 +19,11 @@ void GetName(std::string& name)
 		std::cin >> name;
 		if (name.length() > 10 || name.length() <= 0)
 		{
-			system("cls");
+      clrcon();
 			FootnoteB();
 			std::cout << "\nNot correct input!\n"
 				<< "Try again!";
-			sleep(1000);
+			sleep(1);
       clrcon();
 		}
 		else
@@ -35,7 +35,8 @@ void GetName(std::string& name)
 void BattleMode(StateMachine* sm)
 {
 	int health{ 100 }, gold{ 0 }, day{ 1 }; float lvl{ 1.0f };
-    Hero::debugcheatMode(health, gold, lvl, day); system("cls");
+    Hero::debugcheatMode(health, gold, lvl, day); 
+    clrcon();
 
     std::string name; GetName(name);     // Get the player's name
     Hero hero(name, health, gold, lvl, day, std::make_shared<Fists>()); // Create a hero

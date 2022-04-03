@@ -100,21 +100,21 @@ void choiceWeapon(Hero& hero, std::shared_ptr<Weapon> weapon)
     if (hero.getGold() < weapon->getPrice())
 	{
 		std::cout << " You don't have enough money";
-		sleep(1000);
+		sleep(1);
 	}
 	else
 	{
         if (hero.getWeaponName() == weapon->getName())
 		{
 			std::cout << " You already have this weapon";
-			sleep(1000);
+			sleep(1);
 		}
 		else
 		{
             hero.swapWeapon(weapon);
             hero.buy(weapon->getPrice());
 			std::cout << " A \"" << weapon->getName() << "\" was purchased!";
-			sleep(1000);
+			sleep(1);
 		}
 	}
 }
@@ -124,21 +124,21 @@ void choiceItem(Hero& hero, std::shared_ptr<Item> item)
     if (hero.inventory.size() == hero.getMaxSizeInventory())
 	{
 		std::cout << " Inventory is full =(";
-		sleep(1000);
+		sleep(1);
 	}
 	else
 	{
         if (hero.getGold() < item->getPrice())
 		{
 			std::cout << " You don't have enough money";
-			sleep(1000);
+			sleep(1);
 		}
 		else
 		{
 			hero.inventory.push_back(item);
             hero.buy(item->getPrice());
             std::cout << " A \"" <<  item->getName() << "\" has been added to your inventory!";
-			sleep(1000);
+			sleep(1);
 		}
 	}
 }

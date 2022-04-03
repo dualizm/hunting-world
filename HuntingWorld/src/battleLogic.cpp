@@ -134,7 +134,7 @@ void Tavern(Hero& h)
 
 	h.upDay();
 
-	sleep(2000);
+	sleep(2);
 	DSTgo();
 }
 
@@ -250,7 +250,7 @@ void Inventory(Hero& hero)
 		clrcon();
 		FootnoteB();
 		std::cout << " Inventory is empty! " << std::endl;
-		sleep(1000);
+		sleep(1);
 	}
 	else
 	{

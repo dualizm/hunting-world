@@ -28,7 +28,6 @@ void Screensaver()
     for(auto& o : screensaver)
     {
         std::cout << o << std::endl;
-        sleep(1);
     }
 	  sleep(3);
 
@@ -46,7 +45,6 @@ void StoryLine()
     for(auto& o : str)
     {
         std::cout << o;
-        sleep(1);
     }
     FSL();
     sleep(3);
@@ -65,6 +63,6 @@ void GameInstructions()
         << " The difficulty of the game increases with the number of playing days that\n have passed.\n\n"
         << " You can meet the dragon only on the 15th and 30th day.." << std::endl;
 	FSL();
-
+  sleep(5);
 	DSTgo();
 }
