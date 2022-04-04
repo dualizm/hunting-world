@@ -1,7 +1,4 @@
 
-#Don't include txt
-*.txt
-
 # Don't include Qt file
 *.pro
 HuntingWorld.pro.user
