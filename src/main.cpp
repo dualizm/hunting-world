@@ -16,7 +16,8 @@
 #include "BattleMenu.h" // Includes a file with game logic
 #include "StateMachine.h" // Includes a file with logic states
 
-int main()
+int 
+main()
 {
     Screensaver(); // Displays the game splash screen
 

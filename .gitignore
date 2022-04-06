@@ -1,4 +1,5 @@
-
-# Don't include Qt file
-*.pro
-HuntingWorld.pro.user
+build/CMakeCache.txt  
+build/CMakeFiles  
+build/cmake_install.cmake  
+build/compile_commands.json  
+build/Makefile
