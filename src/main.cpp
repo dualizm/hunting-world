@@ -26,7 +26,7 @@ main()
     bool work{true};
     sm->add(work);
 
-	while (work)
+	  while (work)
     {
         clrcon();
         short choice;
@@ -46,7 +46,7 @@ main()
         case static_cast<int>(main_menu::EXIT):
             Exit(work); // Make a request to exit! REALIZED
 			break;
-		default:
+		    default:
             ErrorMessage(); // Displays a message about a non-existent command! REALIZED
 			break;
 		}

@@ -24,7 +24,6 @@ void Attack(Hero& hero, Enemy* p_enemy, int damageIn)
 {
     ShowBattlelogText();
 
-	sleep(1);
 	hero.attackEnemy(hero, p_enemy, damageIn);
 	if (p_enemy->getHealth() <= 0 && hero.getHealth() > 0)
 	{

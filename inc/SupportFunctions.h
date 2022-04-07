@@ -31,6 +31,6 @@ inline void FootnoteB()
 
 inline void DSTgo()
 {
-	std::cout << "\n Do something to get out!\n";
+	std::cout << "\n Press ENTER to continue!\n";
   getpass("");
 }

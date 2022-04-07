@@ -31,7 +31,7 @@ int MenuGo(Hero& h)
         std::cout << "  |  " << std::setw(9) << " Weapon: ";
         lpct::prcolor(lpct::colors::cyan, h.getWeaponName());
 
-        std::cout << "\n" << " Gold: " << std::setw(6);
+        std::cout << " |  " <<  " Gold: " << std::setw(6);
         lpct::prcolor(lpct::colors::yellow, h.getGold());
 
         std::cout << "  |  "  << std::setw(9) << " Attack: " << std::setw(-4);
