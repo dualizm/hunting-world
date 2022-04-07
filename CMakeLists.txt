@@ -9,6 +9,4 @@ set(CMAKE_CXX_FLAGS_RELEASE "-std=c++20 -O2 -fPIC -march=native -pthread")
 include_directories(inc)
 set(PROJECT_SOURCES_DIR src)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
-
 add_executable(${PROJECT_NAME} ${SOURCES})
-
