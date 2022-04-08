@@ -11,13 +11,16 @@ namespace hw
   class ScreenStack final
   {
   public:
-    ScreenStack() noexcept = delete;
-    explicit ScreenStack(std::shared_ptr<IUserMenu> user_menu);
     explicit ScreenStack(std::initializer_list
-        <std::shared_ptr<IUserMenu>> &list_menu);
+        <std::unique_ptr<IUserMenu>> &list_menu);
+
+    void push(std::unique_ptr<IUserMenu> &screen);
+    void pop();
+    const IUserMenu& now() const;
+    bool empty() const;
 
   private:
-    std::stack<std::shared_ptr<IUserMenu>> screens_;
+    std::stack<std::unique_ptr<IUserMenu>> screens_;
   };
 }
 

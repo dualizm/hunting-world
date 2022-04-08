@@ -8,9 +8,9 @@
  *|   Copyright © 2022 Ezi . All Rights Reserved.                          |*
 \*|+---------------------------------| HUNTING WORLD |--------------------+|*/
 
+#include <memory>
 
 int
 main(void)
 {
-  
 }
