@@ -1,5 +1,4 @@
 #include "numsreader.hpp"
-#include "lpct.hpp"
 #include <iostream>
 
 namespace hw
@@ -20,12 +19,7 @@ namespace hw
   void NumsReader::error_message() const
   {
     std::cerr << 
-      lpct::Printer<
-        std::string,
-        lpct::colors::red,
-        lpct::colors_type::fg>
-      ::get_color_line("Error")
-    << ": There is no such command. [0-9]" 
+      "Error : There is no such command. [0-9]" 
     << std::endl;
     
   }

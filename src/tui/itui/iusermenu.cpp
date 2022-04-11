@@ -1,12 +1,11 @@
 #include "iusermenu.hpp"
-#include "lpct.hpp"
 #include <iostream>
 
 namespace hw
 {
   void IUserMenu::print_title(std::string title_name) const
   {
-    std::cout << "+" << std::endl;
+    std::cout << "+" << title_name << std::endl;
   }
 
   void IUserMenu::print_body() const

@@ -20,7 +20,6 @@ set(SRC
 include_directories(
   inc 
   inc/consolereader
-  inc/lpct
   inc/sprites
   inc/tui
   inc/tui/itui

@@ -10,6 +10,7 @@ namespace hw
   public:
     NumsReader() noexcept = default;
     virtual short read_input() const override;
+    void error_message() const;
   };
 
 }

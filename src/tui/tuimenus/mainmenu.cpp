@@ -25,7 +25,7 @@ namespace hw
 
   void MainMenu::display_interface() const
   {
-    print_title();
+    print_title(menu_name_);
     print_body();
     print_select();
   }
