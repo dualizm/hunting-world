@@ -8,9 +8,8 @@ namespace hw
   class NumsReader final : public IStandartReader<short>
   {
   public:
+    NumsReader() noexcept = default;
     virtual short read_input() const override;
-  private:
-    /* data */
   };
 
 }

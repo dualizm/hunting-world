@@ -15,9 +15,12 @@ namespace hw
         <std::unique_ptr<IUserMenu>> &list_menu);
 
     void push(std::unique_ptr<IUserMenu> &screen);
-    void pop();
+
     const IUserMenu& now() const;
+
     bool empty() const;
+
+    void pop();
 
   private:
     std::stack<std::unique_ptr<IUserMenu>> screens_;

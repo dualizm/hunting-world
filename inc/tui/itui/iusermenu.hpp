@@ -1,8 +1,8 @@
 #pragma once
 #ifndef IUSERMENU_HPP_4GMB8APR
 #define IUSERMENU_HPP_4GMB8APR
-#include <vector>
 #include <string>
+#include "istandartreader.hpp"
 
 namespace hw
 {
@@ -13,10 +13,11 @@ namespace hw
     // Displays the screen interface to the user
     virtual void display_interface() const = 0;
 
-    // Reads user select input
-    virtual void read_input() const = 0;
-    
-    std::vector<std::string> choices_;
+    // title, body, select
+    virtual void print_title(std::string title_name) const;
+    virtual void print_body() const;
+    virtual void print_select() const;
+
   public:
     virtual ~IUserMenu() {}
   };

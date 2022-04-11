@@ -9,7 +9,7 @@ namespace hw
   {
   public:
     virtual T read_input() const = 0;
-    virtual void error_message() const;
+
     virtual ~IStandartReader () {}
   private:
     /* data */

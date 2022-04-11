@@ -4,7 +4,6 @@
 
 namespace hw
 {
-
   ScreenStack::ScreenStack(std::initializer_list
       <std::unique_ptr<IUserMenu>> &list_menu)
   {
@@ -20,19 +19,18 @@ namespace hw
     screens_.emplace(std::move(screen));
   }
 
-  void ScreenStack::pop()
-  {
-    screens_.pop();
-  }
-
   const IUserMenu& ScreenStack::now() const
   {
     return reinterpret_cast<const IUserMenu&>(*screens_.top().get());
   }
 
-  bool ScreenStack::empty() const 
+  bool ScreenStack::empty() const
   {
     return screens_.empty();
   }
 
+  void ScreenStack::pop()
+  {
+    screens_.pop();
+  }
 }
