@@ -8,7 +8,7 @@ namespace hw
   MainMenu::MainMenu() noexcept
   {
     // Init reader choices
-    reader_ = std::make_unique<NumsReader>();
+    reader_ = std::make_unique<NumsReader>(1, 5);
 
     // Init choices
     choices_ = std::vector<std::tuple<short, std::string>>{
@@ -27,7 +27,26 @@ namespace hw
   {
     print_title(menu_name_);
     print_body();
-    print_select();
+    print_reader();
+  }
+
+  void MainMenu::print_body() const
+  {
+    print_line();
+    for(const auto& choice:choices_)
+    {
+      std::cout 
+        << std::get<0>(choice) << "] "
+        << std::get<1>(choice) 
+      << std::endl;
+    }
+  }
+
+  void MainMenu::print_reader() const
+  {
+    print_line();
+    std::cout << " > ";
+    reader_->read_input();
   }
 
 }

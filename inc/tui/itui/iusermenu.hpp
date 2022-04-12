@@ -16,7 +16,7 @@ namespace hw
     // title, body, select
     virtual void print_title(std::string title_name) const;
     virtual void print_body() const = 0;
-    virtual void print_select() const = 0;
+    virtual void print_reader() const = 0;
     virtual void print_line() const;
     virtual void print_indent_eight() const;
     virtual void print_indent_four() const;

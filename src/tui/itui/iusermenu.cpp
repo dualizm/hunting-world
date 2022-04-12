@@ -14,20 +14,19 @@ namespace hw
 
   void IUserMenu::print_indent_eight() const
   {
-    for (size_t i = 0; i < 8; i++)
-      std::cout << "\n";
+    print_indent_four();
+    print_indent_four();
   }
 
   void IUserMenu::print_indent_four() const
   {
-    for (size_t i = 0; i < 4; i++)
-      std::cout << "\n";
+    std::cout << "\n\n\n\n";
   }
 
   void IUserMenu::print_indent_twelve() const
   {
-    for (size_t i = 0; i < 12; i++)
-      std::cout << "\n";
+    print_indent_four();
+    print_indent_eight();
   }
 
   void IUserMenu::print_line() const

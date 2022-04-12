@@ -8,9 +8,12 @@ namespace hw
   class NumsReader final : public IStandartReader<short>
   {
   public:
-    NumsReader() noexcept = default;
+    NumsReader(short left_border, short right_border) noexcept;
     virtual short read_input() const override;
-    void error_message() const;
+    virtual void error_message(short choice) const override;
+  private:
+    short left_border_;
+    short right_border_;
   };
 
 }

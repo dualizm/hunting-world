@@ -8,9 +8,11 @@
  *|   Copyright © 2022 Ezi . All Rights Reserved.                          |*
 \*|+---------------------------------| HUNTING WORLD |--------------------+|*/
 
-#include <memory>
+#include "mainmenu.hpp"
 
 int
 main(void)
 {
+  hw::MainMenu main_menu{};
+  main_menu.display_interface();
 }

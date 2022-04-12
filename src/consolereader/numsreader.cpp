@@ -3,23 +3,36 @@
 
 namespace hw
 {
+  NumsReader::NumsReader(short left_border, short right_border) noexcept
+    : left_border_{left_border}, right_border_{right_border} {}
+
   short NumsReader::read_input() const
   {
-    std::string str; 
-    std::cin >> str;
+    short choice{};
+    try 
+    {
+      std::cin >> choice;
 
-    if (str[0] >= '0' || str[0] <= '9')
-      return static_cast<short>(str.at(0));
-    else 
-      error_message();
-
-    return 0;
+      if ( choice < left_border_ 
+          || choice > right_border_)
+      {
+        throw choice;
+      }
+    }
+    catch(...) 
+    {
+      error_message(choice);
+    }
+    return choice;
   }
 
-  void NumsReader::error_message() const
+  void NumsReader::error_message(short choice) const
   {
     std::cerr << 
-      "Error : There is no such command. [0-9]" 
+      "Error : There is no such command - " <<
+      choice <<
+      "\nYou need [" << left_border_ <<
+      "-" << right_border_ << "]"
     << std::endl;
     
   }
