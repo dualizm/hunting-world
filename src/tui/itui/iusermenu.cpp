@@ -8,7 +8,9 @@ namespace hw
   {
     print_line();
     print_indent_four();
-    for(size_t i{}; i < constants::width_screen / 2; ++i)
+    size_t middle_screen_for_txt{(constants::width_screen / 2) - (title_name.size() / 2)};
+
+    for(size_t i{}; i < middle_screen_for_txt; ++i)
       std::cout << ' ';
     std::cout << title_name << std::endl;
     print_indent_four();
