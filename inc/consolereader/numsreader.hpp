@@ -12,8 +12,8 @@ namespace hw
     virtual short read_input() const override;
     virtual void error_message(short choice) const override;
   private:
-    short left_border_;
-    short right_border_;
+    short left_border_ = 0;
+    short right_border_ = 0;
   };
 
 }

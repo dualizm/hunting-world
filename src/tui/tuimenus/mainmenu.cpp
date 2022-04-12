@@ -46,7 +46,6 @@ namespace hw
   {
     print_line();
     std::cout << " > ";
-    reader_->read_input();
   }
 
 }
