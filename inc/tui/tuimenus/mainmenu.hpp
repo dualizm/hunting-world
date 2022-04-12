@@ -12,6 +12,8 @@ namespace hw
   public:
     MainMenu()  noexcept;
     virtual void display_interface() const override;
+    virtual void print_body() const override;
+    virtual void print_select() const override;
   
   private:
   /* UserMembers

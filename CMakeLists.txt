@@ -23,7 +23,9 @@ include_directories(
   inc/sprites
   inc/tui
   inc/tui/itui
-  inc/tui/tuimenus)
+  inc/tui/tuimenus
+  inc/constants
+  )
 
 
 add_executable(${PROJECT_NAME} ${SRC})
