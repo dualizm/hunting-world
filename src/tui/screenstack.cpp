@@ -19,7 +19,7 @@ namespace hw
     screens_.emplace(std::move(screen));
   }
 
-  const IUserMenu& ScreenStack::now() const
+  const IUserMenu& ScreenStack::current_screen() const
   {
     return reinterpret_cast<const IUserMenu&>(*screens_.top().get());
   }

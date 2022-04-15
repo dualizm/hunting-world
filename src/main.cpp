@@ -13,7 +13,6 @@
 int
 main(void)
 {
-  int a = 5;
   hw::MainMenu main_menu{};
   main_menu.display_interface();
 }

@@ -16,7 +16,7 @@ namespace hw
 
     void push(std::unique_ptr<IUserMenu> &screen);
 
-    const IUserMenu& now() const;
+    const IUserMenu& current_screen() const;
 
     bool empty() const;
 
