@@ -1,5 +1,6 @@
 #include "mainmenu.hpp"
 #include "numsreader.hpp"
+#include "constants.hpp"
 #include <memory>
 #include <iostream>
 
@@ -7,9 +8,6 @@ namespace hw
 {
   MainMenu::MainMenu() noexcept
   {
-    // Init reader choices
-    reader_ = std::make_unique<NumsReader>(1, 5);
-
     // Init choices
     choices_ = std::vector<std::tuple<short, std::string>>{
       std::make_tuple<short, std::string>(1, "Start"),
@@ -23,29 +21,19 @@ namespace hw
     menu_name_ = "Game menu";
   }
 
-  void MainMenu::display_interface() const
+  std::string MainMenu::get_title_name() const 
   {
-    print_title(menu_name_);
-    print_body();
-    print_reader();
+    return menu_name_;
   }
 
-  void MainMenu::print_body() const
+  std::string MainMenu::get_body_choices() const
   {
-    print_line();
+    std::string temp_buff;
     for(const auto& choice:choices_)
     {
-      std::cout 
-        << std::get<0>(choice) << "] "
-        << std::get<1>(choice) 
-      << std::endl;
+      temp_buff.append(std::to_string(std::get<0>(choice)) + "] ");
+      temp_buff.append(std::get<1>(choice) + '\n');
     }
+    return temp_buff;
   }
-
-  void MainMenu::print_reader() const
-  {
-    print_line();
-    std::cout << " > ";
-  }
-
 }

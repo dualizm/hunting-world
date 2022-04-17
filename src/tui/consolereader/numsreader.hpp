@@ -1,6 +1,4 @@
 #pragma once
-#ifndef NUMSREADER_HPP_QPED7FJH
-#define NUMSREADER_HPP_QPED7FJH
 #include "istandartreader.hpp"
 
 namespace hw
@@ -16,6 +14,4 @@ namespace hw
     short right_border_ = 0;
   };
 
-}
-
-#endif /* end of include guard: NUMSREADER_HPP_QPED7FJH */
+} // namespace hw

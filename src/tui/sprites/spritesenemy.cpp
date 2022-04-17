@@ -87,7 +87,7 @@ namespace hw
             {"       /       '----'       \\   "}
       };
 
-    }
+    } // namespace mysterious_forest
 
     namespace old_castle
     {
@@ -143,7 +143,7 @@ namespace hw
             {"       `   ;      ; ;      `;   "},
             {"                   `;           "}
       };
-    }
+    } // namespace old_castle
 
     namespace sacred_mountains
     {
@@ -198,7 +198,7 @@ namespace hw
             {"                 *     ````,,___,``,`   "},
             {"       *                    ,`__`,      "}
        };
-    }
+    } // namespace sacred_mountains
 
     namespace cave_of_time
     {
@@ -219,7 +219,8 @@ namespace hw
         {"          `,,'  |      /     `\\            "},
         {"               /      |        ~\\          "}
       };
-    }
-  }
+    } // namespace cave_of_time
+  } // namespace sprites_enemy
 
-}
+
+}// namespace hw

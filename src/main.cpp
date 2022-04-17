@@ -8,11 +8,13 @@
  *|   Copyright © 2022 Ezi . All Rights Reserved.                          |*
 \*|+---------------------------------| HUNTING WORLD |--------------------+|*/
 
+#include "consoleprinter.hpp"
 #include "mainmenu.hpp"
 
 int
-main(void)
+main()
 {
   hw::MainMenu main_menu{};
-  main_menu.display_interface();
+  hw::ConsolePrinter console_printer{std::make_shared<hw::MainMenu>()};
+  console_printer.display_interface();
 }

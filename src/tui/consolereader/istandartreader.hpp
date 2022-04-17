@@ -1,6 +1,4 @@
 #pragma once
-#ifndef ISTANDARTREADER_HPP_QI8VQWZK
-#define ISTANDARTREADER_HPP_QI8VQWZK
 
 namespace hw
 {
@@ -15,6 +13,4 @@ namespace hw
   private:
     /* data */
   };
-}
-
-#endif /* end of include guard: ISTANDARTREADER_HPP_QI8VQWZK */
+} // namespace hw

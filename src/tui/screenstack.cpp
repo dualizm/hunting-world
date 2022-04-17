@@ -5,23 +5,23 @@
 namespace hw
 {
   ScreenStack::ScreenStack(std::initializer_list
-      <std::unique_ptr<IUserMenu>> &list_menu)
+      <std::shared_ptr<IUserMenu>> &list_menu)
   {
-    for (auto& element : list_menu) 
+    for (auto element : list_menu) 
     {
-      screens_.emplace(std::move(element.get())); 
+      screens_.emplace(element.get()); 
     }
 
   }
 
-  void ScreenStack::push(std::unique_ptr<IUserMenu> &screen)
+  void ScreenStack::push(std::shared_ptr<IUserMenu> &screen)
   {
-    screens_.emplace(std::move(screen));
+    screens_.emplace(screen);
   }
 
-  const IUserMenu& ScreenStack::current_screen() const
+  const std::shared_ptr<const IUserMenu> ScreenStack::current_screen() const
   {
-    return reinterpret_cast<const IUserMenu&>(*screens_.top().get());
+    return const_pointer_cast<const IUserMenu>(screens_.top());
   }
 
   bool ScreenStack::empty() const

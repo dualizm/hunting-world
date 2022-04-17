@@ -1,6 +1,4 @@
 #pragma once
-#ifndef GAMETUI_HPP_HSKL9UP8
-#define GAMETUI_HPP_HSKL9UP8
 #include "screenstack.hpp"
 
 namespace hw
@@ -13,6 +11,4 @@ namespace hw
     ScreenStack stack_;
   };
 
-}
-
-#endif /* end of include guard: GAMETUI_HPP_HSKL9UP8 */
+} // namespace hw

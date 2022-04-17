@@ -1,6 +1,5 @@
 #pragma once
-#ifndef SCREENSTACK_HPP_J1EHXUR4
-#define SCREENSTACK_HPP_J1EHXUR4
+
 #include "iusermenu.hpp"
 #include <initializer_list>
 #include <memory>
@@ -12,19 +11,17 @@ namespace hw
   {
   public:
     explicit ScreenStack(std::initializer_list
-        <std::unique_ptr<IUserMenu>> &list_menu);
+        <std::shared_ptr<IUserMenu>> &list_menu);
 
-    void push(std::unique_ptr<IUserMenu> &screen);
+    void push(std::shared_ptr<IUserMenu> &screen);
 
-    const IUserMenu& current_screen() const;
+    const std::shared_ptr<const IUserMenu> current_screen() const;
 
     bool empty() const;
 
     void pop();
 
   private:
-    std::stack<std::unique_ptr<IUserMenu>> screens_;
+    std::stack<std::shared_ptr<IUserMenu>> screens_;
   };
-}
-
-#endif /* end of include guard: SCREENSTACK_HPP_J1EHXUR4 */
+} // namespace hw
