@@ -19,7 +19,7 @@ namespace hw
     screens_.emplace(screen);
   }
 
-  const std::shared_ptr<const IUserMenu> ScreenStack::current_screen() const
+  std::shared_ptr<const IUserMenu> ScreenStack::current_screen() const
   {
     return const_pointer_cast<const IUserMenu>(screens_.top());
   }

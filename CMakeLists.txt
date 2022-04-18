@@ -20,9 +20,11 @@ include_directories(
   src/tui/consolereader
   src/tui/consoleprinter
   src/tui/constants
-  src/tui/itui
+  src/tui/tuimenus/itui
   src/tui/sprites
   src/tui/tuimenus
+  src/tui/tuimenus/mainmenu
+  src/tui/tuimenus/instructionmenu
   )
 
 

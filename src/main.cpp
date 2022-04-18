@@ -9,12 +9,12 @@
 \*|+---------------------------------| HUNTING WORLD |--------------------+|*/
 
 #include "consoleprinter.hpp"
+#include "instructionmenu.hpp"
 #include "mainmenu.hpp"
 
 int
 main()
 {
-  hw::MainMenu main_menu{};
-  hw::ConsolePrinter console_printer{std::make_shared<hw::MainMenu>()};
+  hw::ConsolePrinter console_printer{std::make_shared<hw::InstructionMenu>()};
   console_printer.display_interface();
 }

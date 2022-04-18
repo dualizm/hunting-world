@@ -13,7 +13,7 @@ namespace hw
       std::make_tuple<short, std::string>(1, "Start"),
       std::make_tuple<short, std::string>(2, "Continue"),
       std::make_tuple<short, std::string>(3, "History"),
-      std::make_tuple<short, std::string>(4, "Inctruction"),
+      std::make_tuple<short, std::string>(4, "Instruction"),
       std::make_tuple<short, std::string>(5, "Exit"),
     };
 

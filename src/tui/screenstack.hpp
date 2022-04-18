@@ -15,7 +15,7 @@ namespace hw
 
     void push(std::shared_ptr<IUserMenu> &screen);
 
-    const std::shared_ptr<const IUserMenu> current_screen() const;
+    std::shared_ptr<const IUserMenu> current_screen() const;
 
     bool empty() const;
 

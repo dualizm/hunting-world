@@ -10,5 +10,6 @@ namespace hw
     virtual std::string get_body_choices() const = 0;
 
     virtual ~IUserMenu() {}
+    std::string menu_name_;
   };
 } // namespace hw
