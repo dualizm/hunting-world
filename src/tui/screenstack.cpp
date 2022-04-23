@@ -1,4 +1,5 @@
 #include "screenstack.hpp"
+#include <algorithm>
 #include <initializer_list>
 #include <memory>
 
@@ -9,9 +10,8 @@ namespace hw
   {
     for (auto element : list_menu) 
     {
-      screens_.emplace(element.get()); 
+      screens_.emplace(element); 
     }
-
   }
 
   void ScreenStack::push(std::shared_ptr<IUserMenu> &screen)
